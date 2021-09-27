@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
-const fieldSchema = mongoose.Schema({
+const fieldSchema = new Schema({
   id: {
     type: String,
     required: true,

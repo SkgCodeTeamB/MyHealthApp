@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
-const appointmentSchema = mongoose.Schema({
+const appointmentSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: "User"

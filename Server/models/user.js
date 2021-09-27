@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
 const bloodTypesArray = ["O+", "O-", "A+", "A-", "B+", "B-", "AB+", "AB-"];
 
-const userSchema = mongoose.Schema({
+const userSchema = new Schema({
   name: {
     type: String,
     required: true
