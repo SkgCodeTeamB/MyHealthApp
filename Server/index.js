@@ -10,11 +10,11 @@ import userRoutes from "./routes/user.js";
 const app = express();
 dotenv.config();
 
-app.use("/user", userRoutes);
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cors());
+
+app.use("/user", userRoutes);
 
 const PORT = process.env.PORT;
 
