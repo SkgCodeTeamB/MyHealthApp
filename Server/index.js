@@ -9,6 +9,11 @@ import userRoutes from "./routes/user.js";
 import appointmentRoutes from "./routes/appointment.js";
 import doctorRoutes from "./routes/doctor.js";
 import fieldRoutes from "./routes/field.js";
+import diagnosesRoutes from "./routes/diagnoses.js";
+import hospitalsRoute from "./routes/hospitals.js";
+import vaccinesRoute from "./routes/vaccines.js";
+import prescriptionsRoute from "./routes/prescriptions.js";
+import vaccinationRoute from "./routes/vaccinations.js";
 
 const app = express();
 dotenv.config();
@@ -21,6 +26,11 @@ app.use("/user", userRoutes);
 app.use("/appointment", appointmentRoutes);
 app.use("/doctor", doctorRoutes);
 app.use("/field", fieldRoutes);
+app.use("/diagnose", diagnosesRoutes);
+app.use("/hospital", hospitalsRoute);
+app.use("/vaccine", vaccinesRoute);
+app.use("/prescription", prescriptionsRoute);
+app.use("/vaccination", vaccinationRoute);
 
 const PORT = process.env.PORT;
 
