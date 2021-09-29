@@ -36,3 +36,13 @@ export const getBookedSlots = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
+
+export const getUsersAppointments = async (req, res) => {
+  try {
+    const appointments = await AppointmentSchema.find({ user: req.body.user });
+
+    res.status(200).json(appointments);
+  } catch (err) {
+    res.status(404).json({ message: error.message });
+  }
+};
