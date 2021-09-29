@@ -2,7 +2,6 @@ import UserSchema from "../models/user.js";
 
 export const getUser = async (req, res) => {
   try {
-    res.send("User page")
     const users = await UserSchema.find().populate('familydoctor');
 
     res.status(200).json(users);
