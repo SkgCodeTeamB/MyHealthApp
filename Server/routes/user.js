@@ -9,7 +9,7 @@ import { getPrescriptions } from "../controllers/prescriptions.js";
 const router = express.Router();
 
 router.get("/", getUser);
-router.get("/add", addUser);
+router.post("/add", addUser);
 router.get("/vaccinations", getVaccinations);
 router.get("/diagnoses", getDiagnoses);
 router.get("/prescriptions", getPrescriptions);
