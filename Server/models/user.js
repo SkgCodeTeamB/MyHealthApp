@@ -39,7 +39,7 @@ const userSchema = new Schema({
   },
   familydoctor: {
     type: Schema.Types.ObjectId,
-    ref: "Doctor"
+    ref: 'Doctor'
   },
   address: {
     type: String

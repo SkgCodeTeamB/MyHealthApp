@@ -8,11 +8,11 @@ const vaccinationsSchema = mongoose.Schema({
     },
     user: {
         type: Schema.Types.ObjectId,
-        ref: "User"
+        ref: 'User'
     },
     vaccine: {
         type: Schema.Types.ObjectId,
-        ref: "Vaccine"
+        ref: 'Vaccine'
     },
     name: {
         type: String,

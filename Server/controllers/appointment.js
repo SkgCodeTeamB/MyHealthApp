@@ -2,7 +2,7 @@ import AppointmentSchema from "../models/appointment.js";
 
 export const getAppointments = async (req, res) => {
   try {
-    const appointments = await AppointmentSchema.find();
+    const appointments = await AppointmentSchema.find().populate('user').populate('doctor');
 
     res.status(200).json(appointments);
   } catch (err) {

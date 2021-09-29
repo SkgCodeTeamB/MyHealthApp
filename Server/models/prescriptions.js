@@ -13,11 +13,11 @@ const prescriptionsSchema = mongoose.Schema({
     },
     user: {
         type: Schema.Types.ObjectId,
-        ref: "User"
+        ref: 'User'
     },
     doctor: {
         type: Schema.Types.ObjectId,
-        ref: "Doctor"
+        ref: 'Doctor'
     }
 });
 

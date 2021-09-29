@@ -2,7 +2,7 @@ import PrescriptionsSchema from "../models/prescriptions.js";
 
 export const getPrescriptions = async (req, res) => {
     try {
-        const users = await PrescriptionsSchema.find();
+        const users = await PrescriptionsSchema.find().populate('user').populate('doctor');
 
         res.status(200).json(users);
     } catch (err) {
