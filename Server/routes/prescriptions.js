@@ -1,6 +1,6 @@
 import express from "express";
 
-import { getPrescriptions } from "../controllers/prescriptions";
+import { getPrescriptions } from "../controllers/prescriptions.js";
 
 const router = express.Router();
 
