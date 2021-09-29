@@ -22,7 +22,7 @@ const doctorSchema = new Schema({
   },
   field: {
     type: Schema.Types.ObjectId,
-    ref: "Field"
+    ref: 'Field'
   }
 });
 
