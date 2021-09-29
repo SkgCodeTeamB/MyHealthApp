@@ -27,7 +27,7 @@ export const addAppointment = async (req, res) => {
 };
 
 //return booked hour slots of given doctor and given date
-export const test = async (req, res) => {
+export const getBookedSlots = async (req, res) => {
   try {
     const appointments = await AppointmentSchema.find({ doctor: req.body.doctor, date: req.body.date }, 'time');
 

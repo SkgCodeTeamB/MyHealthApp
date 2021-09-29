@@ -1,6 +1,6 @@
 import UserSchema from "../models/user.js";
 
-export const getUser = async (req, res) => {
+export const getUsers = async (req, res) => {
   try {
     const users = await UserSchema.find().populate('familydoctor');
 
@@ -28,6 +28,17 @@ export const addUser = async (req, res) => {
 
     const savedUser = await user.save();
     res.status(200).json(savedUser);
+  } catch (err) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+//send all the information of given user' amka (req.body.amka)
+export const getInfo = async (req, res) => {
+  try {
+    const users = await UserSchema.find({ amka: req.body.amka }).populate('familydoctor');
+
+    res.status(200).json(users);
   } catch (err) {
     res.status(404).json({ message: error.message });
   }
