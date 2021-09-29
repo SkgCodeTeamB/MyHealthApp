@@ -11,7 +11,7 @@ export const getUser = async (req, res) => {
   }
 };
 
-export const postUser = async (req, res) => {
+export const addUser = async (req, res) => {
   try {
     const user = new UserSchema({
       name: req.body.name,

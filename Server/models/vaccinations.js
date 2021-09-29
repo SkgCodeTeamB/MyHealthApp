@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const vaccinationsSchema = mongoose.Schema({
     date: {
-        type: Date,
+        type: String,
         required: false
     },
     user: {

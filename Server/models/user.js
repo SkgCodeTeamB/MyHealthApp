@@ -23,7 +23,7 @@ const userSchema = new Schema({
     unique: true
   },
   birthday: {
-    type: Date,
+    type: String,
     required: true
   },
   bloodtype: {
