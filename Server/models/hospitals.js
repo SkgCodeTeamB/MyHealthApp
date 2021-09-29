@@ -18,7 +18,7 @@ const hospitalsSchema = mongoose.Schema({
         type: String,
         required: true,
         unique: true
-    },
+    }
 
 });
 
