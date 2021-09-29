@@ -14,8 +14,6 @@ router.get("/vaccinations", getVaccinations);
 router.get("/diagnoses", getDiagnoses);
 router.get("/prescriptions", getPrescriptions);
 
-router.post("/test", postUser);
-
 
 
 export default router;
