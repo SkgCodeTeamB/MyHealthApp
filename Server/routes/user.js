@@ -6,7 +6,6 @@ import { getVaccinations } from "../controllers/vaccination.js";
 import { getDiagnoses } from "../controllers/diagnoses.js";
 import { getPrescriptions } from "../controllers/prescriptions.js";
 
-
 const router = express.Router();
 
 router.get("/", getUser);
