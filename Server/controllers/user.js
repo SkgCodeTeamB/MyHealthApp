@@ -1,7 +1,8 @@
 import UserSchema from "../models/user.js";
 
-export const getUsers = async (req, res) => {
+export const getUser = async (req, res) => {
   try {
+    res.send("User page")
     const users = await UserSchema.find();
 
     res.status(200).json(users);
@@ -10,7 +11,7 @@ export const getUsers = async (req, res) => {
   }
 };
 
-export const addUser = async (req, res) => {
+export const postUser = async (req, res) => {
   try {
     const user = new UserSchema({
       name: req.body.name,
