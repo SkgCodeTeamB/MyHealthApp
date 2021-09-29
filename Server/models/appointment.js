@@ -12,13 +12,11 @@ const appointmentSchema = new Schema({
   },
   date: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
   time: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   }
 });
 
