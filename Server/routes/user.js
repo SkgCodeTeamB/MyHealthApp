@@ -14,8 +14,6 @@ router.post("/add", addUser);
 router.get("/vaccinations", getVaccinations);
 router.get("/diagnoses", getDiagnoses);
 router.get("/prescriptions", getPrescriptions);
-router.get("/info", getInfo);
-
-
+router.get("/:amka", getInfo);
 
 export default router;

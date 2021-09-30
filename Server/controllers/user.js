@@ -36,7 +36,7 @@ export const addUser = async (req, res) => {
 //send all the information of given user' amka (req.body.amka)
 export const getInfo = async (req, res) => {
   try {
-    const users = await UserSchema.find({ amka: req.body.amka }).populate('familydoctor');
+    const users = await UserSchema.find({ amka: req.params.amka }).populate('familydoctor');
 
     res.status(200).json(users);
   } catch (err) {
