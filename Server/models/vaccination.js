@@ -11,7 +11,7 @@ const vaccinationSchema = new Schema({
     },
     vaccine: {
         type: Schema.Types.ObjectId,
-        ref: 'Vaccine'
+        ref: 'VaccinesSchema'
     }
 });
 

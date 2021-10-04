@@ -6,7 +6,7 @@ export const getVaccinations = async (req, res) => {
 
         res.status(200).json(vaccinations);
     } catch (err) {
-        res.status(404).json({ message: error.message });
+        res.status(404).json({ message: err.message });
     }
 };
 
@@ -21,7 +21,7 @@ export const addVaccination = async (req, res) => {
         const savedVaccination = await vaccination.save();
         res.status(200).json(savedVaccination);
     } catch (err) {
-        res.status(404).json({ message: error.message });
+        res.status(404).json({ message: err.message });
     }
 };
 
@@ -31,6 +31,6 @@ export const doneVaccinations = async (req, res) => {
 
         res.status(200).json(dv);
     } catch (err) {
-        res.status(404).json({ message: error.message });
+        res.status(404).json({ message: err.message });
     }
 };
