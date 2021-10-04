@@ -10,7 +10,7 @@ const router = express.Router();
 router.get("/", getVaccinations);
 //add a vaccination
 router.post("/add", addVaccination);
-//get the vaccinations of a user
-router.get("/done", doneVaccinations);
+//get all the Vaccinations of given (user's amka on url)
+router.get("/:amka", doneVaccinations);
 
 export default router;

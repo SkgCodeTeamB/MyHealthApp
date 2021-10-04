@@ -1,4 +1,5 @@
 import VaccinationSchema from "../models/vaccination.js";
+import UserSchema from "../models/user.js";
 
 export const getVaccinations = async (req, res) => {
     try {
@@ -27,10 +28,10 @@ export const addVaccination = async (req, res) => {
 
 export const doneVaccinations = async (req, res) => {
     try {
-        const dv = await VaccinationSchema.find({ user: req.body.user }).populate('vaccine');
-
+        const dv = await VaccinationSchema.find({ user: await UserSchema.find({ amka: req.params.amka }) }).populate('vaccine');
+    
         res.status(200).json(dv);
-    } catch (err) {
+      } catch (err) {
         res.status(404).json({ message: err.message });
-    }
+      }
 };
