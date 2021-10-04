@@ -7,7 +7,7 @@ export const getAppointments = async (req, res) => {
 
     res.status(200).json(appointments);
   } catch (err) {
-    res.status(404).json({ message: error.message });
+    res.status(404).json({ message: err.message });
   }
 };
 
@@ -23,7 +23,7 @@ export const addAppointment = async (req, res) => {
     const savedAppointment = await appointment.save();
     res.status(200).json(savedAppointment);
   } catch (err) {
-    res.status(404).json({ message: error.message });
+    res.status(404).json({ message: err.message });
   }
 };
 
@@ -34,7 +34,7 @@ export const getBookedSlots = async (req, res) => {
 
     res.status(200).json(appointments);
   } catch (err) {
-    res.status(404).json({ message: error.message });
+    res.status(404).json({ message: err.message });
   }
 };
 
@@ -44,7 +44,7 @@ export const getUsersAppointments = async (req, res) => {
 
     res.status(200).json(appointments);
   } catch (err) {
-    res.status(404).json({ message: error.message });
+    res.status(404).json({ message: err.message });
   }
 };
 
@@ -54,6 +54,26 @@ export const getUsersAppointmentsCount = async (req, res) => {
       res.status(200).json(JSON.stringify(count));
     });
   } catch (err) {
-    res.status(404).json({ message: error.message });
+    res.status(404).json({ message: err.message });
+  }
+};
+
+export const deleteAppointment = async (req, res) => {
+  try {
+    const deletedAppointment = await AppointmentSchema.deleteOne({ _id: req.params.id });
+
+    res.status(200).json(deletedAppointment);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+};
+
+export const updateAppointment = async (req, res) => {
+  try {
+    const updatedAppointment = await AppointmentSchema.updateOne({ _id: req.body.id }, { $set: { doctor: req.body.doctor, date: req.body.date, time: req.body.time } });
+
+    res.status(200).json(updatedAppointment);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
   }
 };
