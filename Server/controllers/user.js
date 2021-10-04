@@ -13,7 +13,16 @@ export const addUser = async (req, res) => {
     try {
         const user = new UserSchema({
             name: req.body.name,
-            amka: req.body.amka
+            surname: req.body.surname,
+            email: req.body.email,
+            phone: req.body.phone,
+            birthday: req.body.birthday,
+            bloodtype: req.body.bloodtype,
+            amka: req.body.amka,
+            familydoctor: req.body.familydoctor,
+            address: req.body.address,
+            city: req.body.city,
+            postalcode: req.body.postalcode
         });
 
         const savedUser = await user.save();
