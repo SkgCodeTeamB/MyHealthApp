@@ -1,4 +1,5 @@
 import DoctorSchema from "../models/doctor.js";
+import FieldSchema from "../models/field.js";
 
 export const getDoctors = async (req, res) => {
   try {
@@ -6,7 +7,7 @@ export const getDoctors = async (req, res) => {
 
     res.status(200).json(doctors);
   } catch (err) {
-    res.status(404).json({ message: error.message });
+    res.status(404).json({ message: err.message });
   }
 };
 
@@ -23,6 +24,16 @@ export const addDoctor = async (req, res) => {
     const savedDoctor = await doctor.save();
     res.status(200).json(savedDoctor);
   } catch (err) {
-    res.status(404).json({ message: error.message });
+    res.status(404).json({ message: err.message });
+  }
+};
+
+export const getDoctorsOfField = async (req, res) => {
+  try {
+    const doctorsOfField = await DoctorSchema.find({ field: await FieldSchema.find({ name: req.params.field }) });
+
+    res.status(200).json(doctorsOfField);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
   }
 };
