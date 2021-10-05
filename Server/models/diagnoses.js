@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
+
 const Schema = mongoose.Schema;
 
-const diagnoseSchema = mongoose.Schema({
-    Date: {
+const diagnoseSchema = new Schema({
+    date: {
         type: String,
         required: true
     },

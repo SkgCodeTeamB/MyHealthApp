@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
+
 const Schema = mongoose.Schema;
 
-
-const prescriptionsSchema = mongoose.Schema({
+const prescriptionsSchema = new Schema({
     date: {
         type: String,
         required: false
