@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         val btn_Register : Button = findViewById(R.id.btn_Register)
         val btn_Login : Button = findViewById(R.id.btn_Login)
+        val btn_API : Button = findViewById(R.id.btn_API)
 
         val editText_AMKA : EditText = findViewById(R.id.editText_AMKA)
 
@@ -23,6 +24,11 @@ class MainActivity : AppCompatActivity() {
             // your code to perform when the user clicks on the button
             val intentRegister = Intent (this, Register::class.java)
             startActivity(intentRegister)
+        }
+
+        btn_API.setOnClickListener {
+            val intent = Intent(this, TestApiActivity::class.java)
+            startActivity(intent)
         }
 
         btn_Login.setOnClickListener{
@@ -38,6 +44,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, "Your Login is successful.", Toast.LENGTH_SHORT).show()
             }
         }
+
+
 
 
     }
