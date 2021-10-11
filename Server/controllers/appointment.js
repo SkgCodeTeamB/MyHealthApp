@@ -3,7 +3,9 @@ import UserSchema from "../models/user.js";
 
 export const getAppointments = async (req, res) => {
   try {
-    const appointments = await AppointmentSchema.find().populate('user').populate('doctor');
+    const appointments = await AppointmentSchema.find()
+      .populate("user")
+      .populate("doctor");
 
     res.status(200).json(appointments);
   } catch (err) {
@@ -17,7 +19,7 @@ export const addAppointment = async (req, res) => {
       user: req.body.user,
       doctor: req.body.doctor,
       date: req.body.date,
-      time: req.body.time
+      time: req.body.time,
     });
 
     const savedAppointment = await appointment.save();
@@ -30,7 +32,10 @@ export const addAppointment = async (req, res) => {
 //return booked hour slots of given doctor and given date
 export const getBookedSlots = async (req, res) => {
   try {
-    const appointments = await AppointmentSchema.find({ doctor: req.body.doctor, date: req.body.date }, 'time');
+    const appointments = await AppointmentSchema.find(
+      { doctor: req.body.doctor, date: req.body.date },
+      "time"
+    );
 
     res.status(200).json(appointments);
   } catch (err) {
@@ -40,7 +45,9 @@ export const getBookedSlots = async (req, res) => {
 
 export const getUsersAppointments = async (req, res) => {
   try {
-    const appointments = await AppointmentSchema.find({ user: await UserSchema.find({ amka: req.params.amka }) }).populate('doctor');
+    const appointments = await AppointmentSchema.find({
+      user: await UserSchema.find({ amka: req.params.amka }),
+    }).populate("doctor");
 
     res.status(200).json(appointments);
   } catch (err) {
@@ -50,7 +57,9 @@ export const getUsersAppointments = async (req, res) => {
 
 export const getUsersAppointmentsCount = async (req, res) => {
   try {
-    AppointmentSchema.find({ user: await UserSchema.find({ amka: req.params.amka }) }).count({}, function(err, count){
+    AppointmentSchema.find({
+      user: await UserSchema.find({ amka: req.params.amka }),
+    }).count({}, function (err, count) {
       res.status(200).json(JSON.stringify(count));
     });
   } catch (err) {
@@ -60,7 +69,9 @@ export const getUsersAppointmentsCount = async (req, res) => {
 
 export const deleteAppointment = async (req, res) => {
   try {
-    const deletedAppointment = await AppointmentSchema.deleteOne({ _id: req.params.id });
+    const deletedAppointment = await AppointmentSchema.deleteOne({
+      _id: req.params.id,
+    });
 
     res.status(200).json(deletedAppointment);
   } catch (err) {
@@ -70,7 +81,16 @@ export const deleteAppointment = async (req, res) => {
 
 export const updateAppointment = async (req, res) => {
   try {
-    const updatedAppointment = await AppointmentSchema.updateOne({ _id: req.body.id }, { $set: { doctor: req.body.doctor, date: req.body.date, time: req.body.time } });
+    const updatedAppointment = await AppointmentSchema.updateOne(
+      { _id: req.body.id },
+      {
+        $set: {
+          doctor: req.body.doctor,
+          date: req.body.date,
+          time: req.body.time,
+        },
+      }
+    );
 
     res.status(200).json(updatedAppointment);
   } catch (err) {

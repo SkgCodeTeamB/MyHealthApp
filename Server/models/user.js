@@ -6,50 +6,49 @@ const bloodTypesArray = ["O+", "O-", "A+", "A-", "B+", "B-", "AB+", "AB-"];
 const userSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   surname: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   phone: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   birthday: {
     type: String,
-    required: true
+    required: true,
   },
   bloodtype: {
     type: String,
     uppercase: true,
     required: true,
-    enum: bloodTypesArray
+    enum: bloodTypesArray,
   },
   amka: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   familydoctor: {
-    type: Schema.Types.ObjectId,
-    ref: 'Doctor'
+    type: String,
   },
   address: {
-    type: String
+    type: String,
   },
   city: {
-    type: String
+    type: String,
   },
   postalcode: {
-    type: String
-  }
+    type: String,
+  },
 });
 
 const User = mongoose.model("User", userSchema);

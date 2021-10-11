@@ -3,6 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import jwt from "jsonwebtoken";
 
 //Import Routes
 import userRoutes from "./routes/user.js";
@@ -21,6 +22,9 @@ dotenv.config();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cors());
+
+//middleware
+app.use(express.json());
 
 app.use("/user", userRoutes);
 app.use("/appointment", appointmentRoutes);
