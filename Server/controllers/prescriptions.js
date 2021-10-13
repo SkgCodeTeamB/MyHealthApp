@@ -53,30 +53,30 @@ export const getUsersPrescriptionCount = async (req, res) => {
 };
 
 // Deletes a specific prescription
-export const deletePrescription = async (req, res) => {
-    try {
-        const deletedPrescription = await PrescriptionsSchema.deleteOne({_id: req.params.id});
-
-        res.status(200).json(deletedPrescription);
-    } catch (err) {
-        res.status(404).json({message: err.message});
-    }
-};
+// export const deletePrescription = async (req, res) => {
+//     try {
+//         const deletedPrescription = await PrescriptionsSchema.deleteOne({_id: req.params.id});
+//
+//         res.status(200).json(deletedPrescription);
+//     } catch (err) {
+//         res.status(404).json({message: err.message});
+//     }
+// };
 
 // Updates a specific Prescription
-export const updatePrescription = async (req, res) => {
-    try {
-        const updatePrescription = await PrescriptionsSchema.updateOne({_id: req.body.id}, {
-            $set: {
-                date: req.body.date,
-                text: req.body.text,
-                user: req.body.user,
-                doctor: req.body.doctor
-            }
-        });
-
-        res.status(200).json(updatePrescription);
-    } catch (err) {
-        res.status(404).json({message: err.message});
-    }
-};
+// export const updatePrescription = async (req, res) => {
+//     try {
+//         const updatePrescription = await PrescriptionsSchema.updateOne({_id: req.body.id}, {
+//             $set: {
+//                 date: req.body.date,
+//                 text: req.body.text,
+//                 user: req.body.user,
+//                 doctor: req.body.doctor
+//             }
+//         });
+//
+//         res.status(200).json(updatePrescription);
+//     } catch (err) {
+//         res.status(404).json({message: err.message});
+//     }
+// };
