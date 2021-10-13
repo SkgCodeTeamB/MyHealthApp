@@ -33,7 +33,7 @@ export const addPrescription = async (req, res) => {
 // Returns all the users prescriptions
 export const getUsersPrescriptions = async (req, res) => {
     try {
-        const prescriptions = await PrescriptionsSchema.find({user: await UserSchema.find({amka: req.params.amka})}).populate('doctor');
+        const prescriptions = await PrescriptionsSchema.find({user: await UserSchema.find({_id: req.params.id})}).populate('doctor');
 
         res.status(200).json(prescriptions);
     } catch (err) {
@@ -44,7 +44,7 @@ export const getUsersPrescriptions = async (req, res) => {
 // Returns the users prescription count
 export const getUsersPrescriptionCount = async (req, res) => {
     try {
-        PrescriptionsSchema.find({user: await UserSchema.find({amka: req.params.amka})}).count({}, function (err, count) {
+        PrescriptionsSchema.find({user: await UserSchema.find({_id: req.params.id})}).count({}, function (err, count) {
             res.status(200).json(JSON.stringify(count));
         });
     } catch (err) {

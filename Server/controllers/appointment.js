@@ -46,7 +46,7 @@ export const getBookedSlots = async (req, res) => {
 export const getUsersAppointments = async (req, res) => {
   try {
     const appointments = await AppointmentSchema.find({
-      user: await UserSchema.find({ amka: req.params.amka }),
+      user: await UserSchema.find({ _id: req.params.id }),
     }).populate("doctor");
 
     res.status(200).json(appointments);
@@ -58,7 +58,7 @@ export const getUsersAppointments = async (req, res) => {
 export const getUsersAppointmentsCount = async (req, res) => {
   try {
     AppointmentSchema.find({
-      user: await UserSchema.find({ amka: req.params.amka }),
+      user: await UserSchema.find({ _id: req.params.id }),
     }).count({}, function (err, count) {
       res.status(200).json(JSON.stringify(count));
     });

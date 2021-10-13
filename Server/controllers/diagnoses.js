@@ -32,7 +32,7 @@ export const addDiagnose = async (req, res) => {
 // Returns all the users diagnoses
 export const getUsersDiagnoses = async (req, res) => {
     try {
-        const diagnoses = await DiagnoseSchema.find({user: await UserSchema.find({amka: req.params.amka})}).populate('doctor');
+        const diagnoses = await DiagnoseSchema.find({user: await UserSchema.find({_id: req.params.id})}).populate('doctor');
 
         res.status(200).json(diagnoses);
     } catch (err) {
@@ -43,7 +43,7 @@ export const getUsersDiagnoses = async (req, res) => {
 // Returns the users diagnoses count
 export const getUsersDiagnosesCount = async (req, res) => {
     try {
-        DiagnoseSchema.find({user: await UserSchema.find({amka: req.params.amka})}).count({}, function (err, count) {
+        DiagnoseSchema.find({user: await UserSchema.find({_id: req.params.id})}).count({}, function (err, count) {
             res.status(200).json(JSON.stringify(count));
         });
     } catch (err) {

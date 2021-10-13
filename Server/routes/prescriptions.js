@@ -11,8 +11,8 @@ const router = express.Router();
 
 router.get("/", getPrescriptions);
 router.post("/add", addPrescription);
-router.get("/:amka", getUsersPrescriptions);
-router.get("/count/:amka", getUsersPrescriptionCount);
+router.get("/:id", getUsersPrescriptions);
+router.get("/count/:id", getUsersPrescriptionCount);
 router.delete("/delete/:id", deletePrescription);
 router.patch("/update", updatePrescription);
 

@@ -18,11 +18,11 @@ router.post("/login", loginUser);
 router.post("/add", addUser);
 router.patch("/updateUser", updateUser);
 router.get("/vaccinations", getVaccinations);
-router.get("/diagnoses/:amka", getUsersDiagnoses);
-router.get("/diagnoses/count/:amka", getUsersDiagnosesCount);
-router.get("/prescriptions/:amka", getUsersPrescriptions);
-router.get("/prescriptions/count/:amka", getUsersPrescriptionCount);
-router.get("/:amka", getInfo);
+router.get("/diagnoses/:id", getUsersDiagnoses);
+router.get("/diagnoses/count/:id", getUsersDiagnosesCount);
+router.get("/prescriptions/:id", getUsersPrescriptions);
+router.get("/prescriptions/count/:id", getUsersPrescriptionCount);
+router.get("/:id", getInfo);
 router.delete("/delete/:id", deleteUser);
 
 export default router;

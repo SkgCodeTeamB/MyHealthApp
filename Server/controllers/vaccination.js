@@ -28,7 +28,7 @@ export const addVaccination = async (req, res) => {
 
 export const doneVaccinations = async (req, res) => {
     try {
-        const dv = await VaccinationSchema.find({ user: await UserSchema.find({ amka: req.params.amka }) }).populate('vaccine');
+        const dv = await VaccinationSchema.find({ user: await UserSchema.find({ _id: req.params.id }) }).populate('vaccine');
     
         res.status(200).json(dv);
       } catch (err) {

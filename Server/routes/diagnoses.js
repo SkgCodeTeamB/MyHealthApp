@@ -13,8 +13,8 @@ const router = express.Router();
 
 router.get("/", getDiagnoses);
 router.post("/add", addDiagnose);
-router.get("/:amka", getUsersDiagnoses);
-router.get("/count/:amka", getUsersDiagnosesCount);
+router.get("/:id", getUsersDiagnoses);
+router.get("/count/:id", getUsersDiagnosesCount);
 router.delete("/delete/:id", deleteDiagnose);
 router.patch("/update", updateDiagnose);
 

@@ -24,10 +24,10 @@ router.post("/add", addAppointment);
 router.get("/bookedslots", getBookedSlots);
 
 //get all the Appointments of given (user's amka on url)
-router.get("/:amka", getUsersAppointments);
+router.get("/:id", getUsersAppointments);
 
 //get the number of given user's appointments (user's amka on url)
-router.get("/count/:amka", getUsersAppointmentsCount);
+router.get("/count/:id", getUsersAppointmentsCount);
 
 //delete an Appointment (appointment's id on url)
 router.delete("/delete/:id", deleteAppointment);
