@@ -20,15 +20,17 @@ class MainActivity : AppCompatActivity() {
 
         val editText_AMKA : EditText = findViewById(R.id.editText_AMKA)
 
-        btn_Register.setOnClickListener {
-            // your code to perform when the user clicks on the button
-            val intentRegister = Intent (this, Register::class.java)
-            startActivity(intentRegister)
-        }
 
         btn_API.setOnClickListener {
             val intent = Intent(this, TestApiActivity::class.java)
             startActivity(intent)
+        }
+
+
+        btn_Register.setOnClickListener {
+            // your code to perform when the user clicks on the button
+            val intentRegister = Intent (this, Register::class.java)
+            startActivity(intentRegister)
         }
 
         btn_Login.setOnClickListener{

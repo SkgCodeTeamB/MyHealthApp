@@ -5,18 +5,12 @@
       <map>
         <entry key="..\:/Users/Chris/Desktop/Chris/skg.code/MyHealthApp/app/src/main/res/layout/activity_main.xml" value="0.18840579710144928" />
         <entry key="..\:/Users/Marios/Desktop/MyHealthApp/App/src/main/res/layout/activity_home_page.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/Marios/Desktop/MyHealthApp/App/src/main/res/layout/activity_main.xml" value="0.1476510067114094" />
+        <entry key="..\:/Users/Marios/Desktop/MyHealthApp/App/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Marios/Desktop/MyHealthApp/App/src/main/res/layout/activity_marios.xml" value="0.35733695652173914" />
+        <entry key="..\:/Users/Marios/Desktop/MyHealthApp/App/src/main/res/layout/activity_regester.xml" value="0.35733695652173914" />
+        <entry key="..\:/Users/Marios/Desktop/MyHealthApp/App/src/main/res/layout/activity_register1.xml" value="0.35733695652173914" />
         <entry key="..\:/Users/Marios/Desktop/MyHealthApp/App/src/main/res/layout/nav_header.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/Marios/Desktop/MyHealthApp/App/src/main/res/menu/drawer_menu.xml" value="0.36666666666666664" />
-        <entry key="App/src/main/res/drawable/circle.xml" value="0.26666666666666666" />
-        <entry key="App/src/main/res/drawable/home_page.xml" value="0.26666666666666666" />
-        <entry key="App/src/main/res/drawable/ic_launcher_background.xml" value="0.26666666666666666" />
-        <entry key="App/src/main/res/drawable/personal_data.xml" value="0.26666666666666666" />
-        <entry key="App/src/main/res/layout/activity_home_page.xml" value="0.2033514492753623" />
-        <entry key="App/src/main/res/layout/activity_main.xml" value="0.4100456621004566" />
-        <entry key="App/src/main/res/layout/activity_register.xml" value="0.2033514492753623" />
-        <entry key="App/src/main/res/layout/activity_test_api.xml" value="0.23822463768115942" />
-        <entry key="App/src/main/res/layout/nav_header.xml" value="0.2033514492753623" />
       </map>
     </option>
   </component>
