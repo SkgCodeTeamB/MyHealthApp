@@ -15,14 +15,8 @@ import { deleteUser } from "../controllers/user.js";
 const router = express.Router();
 
 router.post("/login", loginUser);
-router.post("/add", addUser);
+router.post("/register", addUser);
 router.patch("/updateUser", updateUser);
-router.get("/vaccinations", getVaccinations);
-router.get("/diagnoses/:id", getUsersDiagnoses);
-router.get("/diagnoses/count/:id", getUsersDiagnosesCount);
-router.get("/prescriptions/:id", getUsersPrescriptions);
-router.get("/prescriptions/count/:id", getUsersPrescriptionCount);
 router.get("/:id", getInfo);
-router.delete("/delete/:id", deleteUser);
 
 export default router;
