@@ -4,12 +4,27 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
+import android.widget.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import android.widget.Toast
 
+import android.app.ProgressDialog
+import com.example.app.api.ApiRegisterInterface
+import com.example.app.api.Hospital
+import com.example.app.api.HospitalResponseItem
+import com.example.app.api.RegisterResponse
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
+
+
 class Register : AppCompatActivity() {
+
+    val BASE_URL = "http://192.168.0.199:5000/"
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +45,6 @@ class Register : AppCompatActivity() {
         val editText_Address : EditText = findViewById(R.id.editText_Address)
         val editText_City : EditText = findViewById(R.id.editText_City)
         val editText_PostalCode : EditText = findViewById(R.id.editText_PostalCode)
-
-
 
         btn_Register2.setOnClickListener {
             //check if the EditText have values or not
@@ -66,21 +79,60 @@ class Register : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Blood Type is Required", Toast.LENGTH_SHORT).show()
             }
             */
-            else if(editText_FamilyDoctor.text.toString().trim().isEmpty()){
-                editText_FamilyDoctor.error = "Required"
-                Toast.makeText(applicationContext, "Family DOctor Type is Required", Toast.LENGTH_SHORT).show()
-            }
             else {
                 // After successful register you will move on new activity
-                val intentRegister = Intent(this, MainActivity::class.java)
-                startActivity(intentRegister)
-                Toast.makeText(this@Register, "Your Register is successful.", Toast.LENGTH_SHORT).show()
+                val retrofit = Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+
+
+                val service = retrofit.create(ApiRegisterInterface::class.java)
+                val call = service.adduser(
+                    editText_Name.text.toString(),
+                    editText_Surname.text.toString(),
+                    editText_Email.text.toString(),
+                    editText_Phone.text.toString(),
+                    editText_Birthday.text.toString(),
+                    "A+",
+                    editText_AMKA2.text.toString(),
+                    editText_FamilyDoctor.text.toString(),
+                    editText_Address.text.toString(),
+                    editText_City.text.toString(),
+                    editText_PostalCode.text.toString())
+
+                call.enqueue( object : Callback<List<RegisterResponse>>{
+                    override fun onResponse(call: Call<List<RegisterResponse>>, response: Response<List<RegisterResponse>>) {
+
+                        if (response != null) {
+                                Toast.makeText(this@Register, "Your Register is successful.", Toast.LENGTH_SHORT).show()
+                                val intentRegister = Intent(this@Register, MainActivity::class.java)
+                                startActivity(intentRegister)
+                            } else{
+                                Toast.makeText(this@Register, "An error occurred please try again later...", Toast.LENGTH_SHORT).show()
+                            }
+
+                    }
+
+                    override fun onFailure(call: Call<List<RegisterResponse>>, t: Throwable) {
+                        if (t != null) {
+                            Toast.makeText(this@Register, t.message, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                })
+                /*
+                       val intentRegister = Intent(this@Register, MainActivity::class.java)
+                       startActivity(intentRegister)
+                       Toast.makeText(this@Register, "Your Register is successful.", Toast.LENGTH_SHORT).show()
+                */
 
             }
+
+
+
 
 
         }
-
 
 
     }
@@ -88,4 +140,9 @@ class Register : AppCompatActivity() {
 
 
 
+
+
+
 }
+
+

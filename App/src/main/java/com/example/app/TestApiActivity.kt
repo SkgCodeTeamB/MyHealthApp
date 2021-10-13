@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class TestApiActivity : AppCompatActivity() {
 
-    val BaseUrl = "http://192.168.1.6:5000/"
+    val BaseUrl = "http://192.168.0.199:5000/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
