@@ -1,13 +1,15 @@
 import express from "express";
 import jwt from "jsonwebtoken";
 
-import { getAppointments } from "../controllers/appointment.js";
-import { addAppointment } from "../controllers/appointment.js";
-import { getBookedSlots } from "../controllers/appointment.js";
-import { getUsersAppointments } from "../controllers/appointment.js";
-import { getUsersAppointmentsCount } from "../controllers/appointment.js";
-import { deleteAppointment } from "../controllers/appointment.js";
-import { updateAppointment } from "../controllers/appointment.js";
+import {
+  getAppointments,
+  addAppointment,
+  getBookedSlots,
+  getUsersAppointments,
+  deleteAppointment,
+  updateAppointment,
+  getUsersAppointmentsCount,
+} from "../controllers/appointment.js";
 
 import { isLoggedIn } from "../middleware/index.js";
 

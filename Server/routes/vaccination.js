@@ -1,8 +1,10 @@
 import express from "express";
 
-import { getVaccinations } from "../controllers/vaccination.js";
-import { addVaccination } from "../controllers/vaccination.js";
-import { doneVaccinations } from "../controllers/vaccination.js";
+import {
+  getVaccinations,
+  addVaccination,
+  doneVaccinations,
+} from "../controllers/vaccination.js";
 
 import { isLoggedIn } from "../middleware/index.js";
 
