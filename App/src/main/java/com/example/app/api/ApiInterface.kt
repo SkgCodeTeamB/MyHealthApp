@@ -23,13 +23,13 @@ interface ApiInterface {
         @Field("address") address: String,
         @Field("city") city: String,
         @Field("postalcode") postalcode: String
-    ): Call<List<RegisterResponse>>
+    ): Call<RegisterResponse>
 
 
 
     @FormUrlEncoded
     @POST("user/login/")
-    fun loginUser(@Field("amka") amka:String): Call<List<LoginResponse>>
+    fun loginUser(@Field("amka") amka:String): Call<LoginResponse>
 
 
 
