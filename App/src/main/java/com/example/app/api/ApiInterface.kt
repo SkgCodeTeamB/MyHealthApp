@@ -2,18 +2,16 @@ package com.example.app.api
 
 
 
-import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
-interface ApiRegisterInterface {
+interface ApiInterface {
 
     @FormUrlEncoded
-    @POST("user/add/")
-    fun adduser(
+    @POST("user/register/")
+    fun addUser(
         @Field("name") name: String,
         @Field("surname") surname: String,
         @Field("email") email: String,
@@ -29,10 +27,9 @@ interface ApiRegisterInterface {
 
 
 
-    @POST("user/login")
     @FormUrlEncoded
-    fun loginUser(@Field("amka") amka:String?
-    ): Call<ResponseBody?>?
+    @POST("user/login/")
+    fun loginUser(@Field("amka") amka:String): Call<List<LoginResponse>>
 
 
 

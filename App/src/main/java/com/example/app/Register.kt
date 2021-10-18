@@ -9,15 +9,16 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.widget.Toast
-
-import android.app.ProgressDialog
-import com.example.app.api.ApiRegisterInterface
-import com.example.app.api.Hospital
-import com.example.app.api.HospitalResponseItem
+import com.example.app.api.ApiInterface
 import com.example.app.api.RegisterResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.IOException
+import com.google.gson.GsonBuilder
+
+
+
+
+
 
 
 class Register : AppCompatActivity() {
@@ -53,7 +54,6 @@ class Register : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Name is Required", Toast.LENGTH_SHORT).show()
             }
             else if (editText_Surname.text.toString().trim().isEmpty()) {
-
                 editText_Surname.error = "Required"
                 Toast.makeText(applicationContext, "Surname is Required", Toast.LENGTH_SHORT).show()
             }
@@ -73,28 +73,31 @@ class Register : AppCompatActivity() {
                 editText_Birthday.error = "Required"
                 Toast.makeText(applicationContext, "Birthday is Required", Toast.LENGTH_SHORT).show()
             }
-            /*
-            else if(spinner_BloodType.get==0){
-                //spinner_BloodType.error = "Required"
+
+            else if(spinner_BloodType.getSelectedItem().toString() == "Blood Type"){
+                //spinner_BloodType.
                 Toast.makeText(applicationContext, "Blood Type is Required", Toast.LENGTH_SHORT).show()
             }
-            */
+
             else {
-                // After successful register you will move on new activity
+
+
+
+
                 val retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
 
 
-                val service = retrofit.create(ApiRegisterInterface::class.java)
-                val call = service.adduser(
+                val service = retrofit.create(ApiInterface::class.java)
+                val call = service.addUser(
                     editText_Name.text.toString(),
                     editText_Surname.text.toString(),
                     editText_Email.text.toString(),
                     editText_Phone.text.toString(),
                     editText_Birthday.text.toString(),
-                    "A+",
+                    spinner_BloodType.getSelectedItem().toString(),
                     editText_AMKA2.text.toString(),
                     editText_FamilyDoctor.text.toString(),
                     editText_Address.text.toString(),
@@ -120,11 +123,11 @@ class Register : AppCompatActivity() {
                         }
                     }
                 })
-                /*
+                    /*
                        val intentRegister = Intent(this@Register, MainActivity::class.java)
                        startActivity(intentRegister)
                        Toast.makeText(this@Register, "Your Register is successful.", Toast.LENGTH_SHORT).show()
-                */
+                    */
 
             }
 
