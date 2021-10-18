@@ -26,10 +26,10 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_home_page)
 
         val drawer : DrawerLayout = findViewById(R.id.drawer_layout)
-        //drawer = findViewById(R.id.drawer_layout)
+        //val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
         val menuRight = findViewById<ImageButton>(R.id.leftRight)
         menuRight.setOnClickListener { v : View? ->
             if (drawer.isDrawerOpen(GravityCompat.START)) {

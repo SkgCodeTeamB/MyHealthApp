@@ -93,6 +93,13 @@ class MainActivity : AppCompatActivity() {
 
                 })
 
+            /*
+                val intentLogin = Intent(this@MainActivity, HomePage::class.java)
+                startActivity(intentLogin)
+                Toast.makeText(this@MainActivity, "Your Login is successful.", Toast.LENGTH_SHORT).show()
+
+                */
+
 
             }
         }
