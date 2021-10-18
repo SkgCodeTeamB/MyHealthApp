@@ -19,7 +19,11 @@ export const loginUser = async (req, res) => {
   //Create and assign Token
   const token = jwt.sign({ _id: validAmka._id }, process.env.TOKEN_SECRET);
   res.header("auth-token", token);
-  res.json(validAmka);
+  let data = {
+    token,
+    validAmka,
+  };
+  res.send(data);
 };
 
 export const addUser = async (req, res) => {
