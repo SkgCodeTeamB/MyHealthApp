@@ -1,6 +1,10 @@
 import UserSchema from "../models/user.js";
 import { registerValidation, loginValidation } from "../middleware/index.js";
 import User from "../models/user.js";
+import AppointmentSchema from "../models/appointment.js";
+import DiagnoseSchema from "../models/diagnoses.js";
+import PrescriptionsSchema from "../models/prescriptions.js";
+
 import jwt from "jsonwebtoken";
 
 export const loginUser = async (req, res) => {
@@ -14,7 +18,7 @@ export const loginUser = async (req, res) => {
 
   //Create and assign Token
   const token = jwt.sign({ _id: validAmka._id }, process.env.TOKEN_SECRET);
-  res.header("auth-token", token).send(token);
+  res.header("auth-token", token);
   res.json(validAmka);
 };
 
