@@ -1,6 +1,10 @@
 import UserSchema from "../models/user.js";
 import { registerValidation, loginValidation } from "../middleware/index.js";
 import User from "../models/user.js";
+import AppointmentSchema from "../models/appointment.js";
+import DiagnoseSchema from "../models/diagnoses.js";
+import PrescriptionsSchema from "../models/prescriptions.js";
+
 import jwt from "jsonwebtoken";
 
 export const loginUser = async (req, res) => {
@@ -9,13 +13,17 @@ export const loginUser = async (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
 
   //Check if Users Exists in DB
-  const validAmka = await User.findOne({ amka: req.body.amka });
-  if (!validAmka) return res.status(400).send("Amka does not exist");
+  const user = await User.findOne({ amka: req.body.amka });
+  if (!user) return res.status(400).send("Amka does not exist");
 
   //Create and assign Token
-  const token = jwt.sign({ _id: validAmka._id }, process.env.TOKEN_SECRET);
-  res.header("auth-token", token).send(token);
-  res.json(validAmka);
+  const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+  res.header("auth-token", token);
+  let data = {
+    token,
+    user,
+  };
+  res.send(data);
 };
 
 export const addUser = async (req, res) => {

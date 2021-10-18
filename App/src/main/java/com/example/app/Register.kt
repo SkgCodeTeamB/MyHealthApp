@@ -104,10 +104,10 @@ class Register : AppCompatActivity() {
                     editText_City.text.toString(),
                     editText_PostalCode.text.toString())
 
-                call.enqueue( object : Callback<List<RegisterResponse>>{
-                    override fun onResponse(call: Call<List<RegisterResponse>>, response: Response<List<RegisterResponse>>) {
+                call.enqueue( object : Callback<RegisterResponse>{
+                    override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
 
-                        if (response != null) {
+                        if (response.code() == 200) {
                                 Toast.makeText(this@Register, "Your Register is successful.", Toast.LENGTH_SHORT).show()
                                 val intentRegister = Intent(this@Register, MainActivity::class.java)
                                 startActivity(intentRegister)
@@ -117,7 +117,7 @@ class Register : AppCompatActivity() {
 
                     }
 
-                    override fun onFailure(call: Call<List<RegisterResponse>>, t: Throwable) {
+                    override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
                         if (t != null) {
                             Toast.makeText(this@Register, t.message, Toast.LENGTH_SHORT).show()
                         }

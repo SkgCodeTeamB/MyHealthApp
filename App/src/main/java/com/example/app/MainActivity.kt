@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
         val btn_Register: Button = findViewById(R.id.btn_Register)
         val btn_Login: Button = findViewById(R.id.btn_Login)
         val btn_API: Button = findViewById(R.id.btn_API)
@@ -60,22 +61,30 @@ class MainActivity : AppCompatActivity() {
             } else {
                 // After successful register you will move on new activity
 
+
+
+                val gson = GsonBuilder()
+                    .setLenient()
+                    .create()
+
+
                 val retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(gson))
                     .build()
 
 
                 val service = retrofit.create(ApiInterface::class.java)
                 val call = service.loginUser(editText_AMKA.text.toString())
 
-                call.enqueue(object : Callback<List<LoginResponse>> {
-                    override fun onResponse(call: Call<List<LoginResponse>>, response: Response<List<LoginResponse>>) {
+                call.enqueue(object : Callback<LoginResponse> {
+                    override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
 
                         if (response.body() != null) {
                             val intentLogin = Intent(this@MainActivity, HomePage::class.java)
                             startActivity(intentLogin)
                             Toast.makeText(this@MainActivity, "Your Login is successful.", Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(this@MainActivity, response.body()!!.token.toString(),Toast.LENGTH_SHORT).show()
 
                         }else {
                             Toast.makeText(this@MainActivity, "Wrong AMKA.Please try again", Toast.LENGTH_SHORT).show()
@@ -84,7 +93,7 @@ class MainActivity : AppCompatActivity() {
 
                     }
 
-                    override fun onFailure(call: Call<List<LoginResponse>>, t: Throwable) {
+                    override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                         if (t != null) {
                             Toast.makeText(this@MainActivity, t.message, Toast.LENGTH_SHORT).show()
                         }
@@ -92,6 +101,13 @@ class MainActivity : AppCompatActivity() {
                     }
 
                 })
+
+            /*
+                val intentLogin = Intent(this@MainActivity, HomePage::class.java)
+                startActivity(intentLogin)
+                Toast.makeText(this@MainActivity, "Your Login is successful.", Toast.LENGTH_SHORT).show()
+
+                */
 
 
             }
