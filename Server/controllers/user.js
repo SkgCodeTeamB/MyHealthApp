@@ -13,15 +13,15 @@ export const loginUser = async (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
 
   //Check if Users Exists in DB
-  const validAmka = await User.findOne({ amka: req.body.amka });
-  if (!validAmka) return res.status(400).send("Amka does not exist");
+  const user = await User.findOne({ amka: req.body.amka });
+  if (!user) return res.status(400).send("Amka does not exist");
 
   //Create and assign Token
-  const token = jwt.sign({ _id: validAmka._id }, process.env.TOKEN_SECRET);
+  const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
   res.header("auth-token", token);
   let data = {
     token,
-    validAmka,
+    user,
   };
   res.send(data);
 };
