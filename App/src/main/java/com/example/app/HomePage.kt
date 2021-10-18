@@ -26,6 +26,7 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_home_page)
 
         val drawer : DrawerLayout = findViewById(R.id.drawer_layout)

@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
         val btn_Register: Button = findViewById(R.id.btn_Register)
         val btn_Login: Button = findViewById(R.id.btn_Login)
         val btn_API: Button = findViewById(R.id.btn_API)
@@ -60,9 +61,16 @@ class MainActivity : AppCompatActivity() {
             } else {
                 // After successful register you will move on new activity
 
+
+
+                val gson = GsonBuilder()
+                    .setLenient()
+                    .create()
+
+
                 val retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(gson))
                     .build()
 
 
