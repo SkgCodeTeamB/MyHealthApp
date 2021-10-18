@@ -1,5 +1,7 @@
 import AppointmentSchema from "../models/appointment.js";
 import UserSchema from "../models/user.js";
+import DoctorSchema from "../models/doctor.js";
+import FieldSchema from "../models/field.js";
 
 export const getAppointments = async (req, res) => {
   try {
@@ -10,6 +12,22 @@ export const getAppointments = async (req, res) => {
     res.status(200).json(appointments);
   } catch (err) {
     res.status(404).json({ message: err.message });
+  }
+};
+
+export const getAppointmentInfo = async (req, res) => {
+  try {
+    const doctors = await DoctorSchema.find().populate("field");
+    const fields = await FieldSchema.find();
+
+    const appointmentData = {
+      doctors,
+      fields,
+    };
+
+    res.status(200).json(appointmentData);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
   }
 };
 

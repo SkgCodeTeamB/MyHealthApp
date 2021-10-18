@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import {
   getAppointments,
   addAppointment,
+  getAppointmentInfo,
   getBookedSlots,
   getUsersAppointments,
   deleteAppointment,
@@ -17,6 +18,9 @@ const router = express.Router();
 
 //get all the Appointment (for TEST)
 router.get("/", isLoggedIn, getAppointments);
+
+//get all info needed to populate appointment form
+router.get("/appointmentInfo", getAppointmentInfo);
 
 //add an Appointment (body info)
 router.post("/add", addAppointment);
