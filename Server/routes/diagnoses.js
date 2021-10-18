@@ -4,18 +4,14 @@ import {
   addDiagnose,
   getDiagnoses,
   getUsersDiagnoses,
-  getUsersDiagnosesCount,
-  deleteDiagnose,
-  updateDiagnose,
 } from "../controllers/diagnoses.js";
+
+import { isLoggedIn } from "../middleware/index.js";
 
 const router = express.Router();
 
-router.get("/", getDiagnoses);
-router.post("/add", addDiagnose);
-router.get("/:id", getUsersDiagnoses);
-router.get("/count/:id", getUsersDiagnosesCount);
-router.delete("/delete/:id", deleteDiagnose);
-router.patch("/update", updateDiagnose);
+router.get("/", isLoggedIn, getDiagnoses);
+router.post("/add", isLoggedIn, addDiagnose);
+router.get("/:id", isLoggedIn, getUsersDiagnoses);
 
 export default router;

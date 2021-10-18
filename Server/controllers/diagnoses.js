@@ -52,30 +52,30 @@ export const getUsersDiagnosesCount = async (req, res) => {
 };
 
 // Deletes a specific diagnose
-export const deleteDiagnose = async (req, res) => {
-    try {
-        const deletedDiagnose = await DiagnoseSchema.deleteOne({_id: req.params.id});
-
-        res.status(200).json(deletedDiagnose);
-    } catch (err) {
-        res.status(404).json({message: err.message});
-    }
-};
+// export const deleteDiagnose = async (req, res) => {
+//     try {
+//         const deletedDiagnose = await DiagnoseSchema.deleteOne({_id: req.params.id});
+//
+//         res.status(200).json(deletedDiagnose);
+//     } catch (err) {
+//         res.status(404).json({message: err.message});
+//     }
+// };
 
 // Updates a specific diagnose
-export const updateDiagnose = async (req, res) => {
-    try {
-        const updateDiagnose = await DiagnoseSchema.updateOne({_id: req.body.id}, {
-            $set: {
-                date: req.body.date,
-                text: req.body.text,
-                user: req.body.user,
-                doctor: req.body.doctor
-            }
-        });
-
-        res.status(200).json(updateDiagnose);
-    } catch (err) {
-        res.status(404).json({message: err.message});
-    }
-};
+// export const updateDiagnose = async (req, res) => {
+//     try {
+//         const updateDiagnose = await DiagnoseSchema.updateOne({_id: req.body.id}, {
+//             $set: {
+//                 date: req.body.date,
+//                 text: req.body.text,
+//                 user: req.body.user,
+//                 doctor: req.body.doctor
+//             }
+//         });
+//
+//         res.status(200).json(updateDiagnose);
+//     } catch (err) {
+//         res.status(404).json({message: err.message});
+//     }
+// };
