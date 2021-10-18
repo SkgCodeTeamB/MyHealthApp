@@ -27,7 +27,7 @@ router.post("/add", addAppointment);
 
 //get booked hour slots of given doctor and given date
 //(front-end filtering of already booked timeslots)
-router.get("/bookedslots", getBookedSlots);
+router.post("/bookedslots", getBookedSlots);
 
 //get all the Appointments of given (user's amka on url)
 router.get("/:id", getUsersAppointments);
