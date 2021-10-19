@@ -42,7 +42,7 @@ export const getUsersPrescriptions = async (req, res) => {
 };
 
 // Returns the users prescription count
-export const getUsersPrescriptionCount = async (req, res) => {
+export const getUsersPrescriptionsCount = async (req, res) => {
     try {
         PrescriptionsSchema.find({user: await UserSchema.find({_id: req.params.id})}).count({}, function (err, count) {
             res.status(200).json(JSON.stringify(count));
