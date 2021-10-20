@@ -5,6 +5,7 @@ package com.example.app.api
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ApiInterface {
@@ -30,6 +31,10 @@ interface ApiInterface {
     @FormUrlEncoded
     @POST("user/login/")
     fun loginUser(@Field("amka") amka:String): Call<LoginResponse>
+
+
+    @GET("user/register/")
+    fun getPersonalData() : Call<PersonalDataResponse>
 
 
 

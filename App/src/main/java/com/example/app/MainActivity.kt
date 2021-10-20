@@ -1,25 +1,19 @@
 package com.example.app
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.app.api.ApiInterface
 import com.example.app.api.LoginResponse
-import com.example.app.api.RegisterResponse
-import okhttp3.ResponseBody
+import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.IOException
-import com.google.gson.GsonBuilder
-
-import com.google.gson.Gson
-import okhttp3.OkHttpClient
 
 
 class MainActivity : AppCompatActivity() {
@@ -86,7 +80,8 @@ class MainActivity : AppCompatActivity() {
                             Toast.makeText(this@MainActivity, "Your Login is successful.", Toast.LENGTH_SHORT).show()
                             //Toast.makeText(this@MainActivity, response.body()!!.token.toString(),Toast.LENGTH_SHORT).show()
 
-                        }else {
+                        }
+                        else {
                             Toast.makeText(this@MainActivity, "Wrong AMKA.Please try again", Toast.LENGTH_SHORT).show()
                         }
 

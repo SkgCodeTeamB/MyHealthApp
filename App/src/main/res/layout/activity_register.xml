@@ -240,15 +240,14 @@
             app:layout_constraintTop_toBottomOf="@+id/spinner_BloodType" />
 
 
-        <EditText
-            android:id="@+id/editText_FamilyDoctor"
+        <Spinner
+            android:id="@+id/spinner_FamilyDoctor"
             android:layout_width="250dp"
             android:layout_height="48dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
+            android:entries="@array/Doctors"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView_FamilyDoctor"
@@ -268,7 +267,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText_FamilyDoctor" />
+            app:layout_constraintTop_toBottomOf="@+id/spinner_FamilyDoctor" />
 
 
         <EditText

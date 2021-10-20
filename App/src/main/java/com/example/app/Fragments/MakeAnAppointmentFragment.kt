@@ -7,27 +7,19 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.app.R
 
-class VaccinesFragment : Fragment() {
-
-
-
+class MakeAnAppointmentFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_vaccines, container, false)
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_make_an_appointment, container, false)
     }
 
     companion object {
-        fun newInstance(): VaccinesFragment {
-            return VaccinesFragment()
+        fun newInstance(): MakeAnAppointmentFragment {
+            return MakeAnAppointmentFragment()
         }
-
     }
-
-
-
 }
