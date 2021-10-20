@@ -1,12 +1,11 @@
-package com.example.dummyappointmentsapp
+package com.example.app.P_API
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import com.example.app.P_API.ApiInterface
+import com.example.app.Models.Appointments.*
 import com.example.app.R
-import com.example.dummyappointmentsapp.Models.*
 import retrofit2.Call
 import retrofit2.Response
 import java.text.SimpleDateFormat

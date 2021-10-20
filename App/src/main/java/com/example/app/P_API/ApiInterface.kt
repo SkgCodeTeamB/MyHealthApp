@@ -1,7 +1,9 @@
 package com.example.app.P_API
 
-import com.example.dummyappointmentsapp.Models.*
-import com.example.dummyappointmentsapp.Models.Field
+import com.example.app.Models.Appointments.*
+import com.example.app.Models.Appointments.Field
+import com.example.app.Models.Vaccinations.Vaccination
+import com.example.app.Models.Vaccinations.Vaccine
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

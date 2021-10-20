@@ -23,7 +23,7 @@ import com.google.gson.GsonBuilder
 
 class Register : AppCompatActivity() {
 
-    val BASE_URL = "http://192.168.0.199:5000/"
+    val BASE_URL = "http://192.168.1.5:5000/"
 
 
 
