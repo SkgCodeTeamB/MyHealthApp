@@ -22,4 +22,40 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
+    <array name="Doctors">
+        <item>Katherine	Bower</item>
+        <item>Donna	Howard</item>
+        <item>Peter	Robertson</item>
+        <item>Jasmine Thomson</item>
+        <item>Lucas	Mackay</item>
+        <item>Neil Campbell</item>
+        <item>Fiona Hart</item>
+        <item>Audrey Hamilton</item>
+        <item>Madeleine Allan</item>
+        <item>Paul Skinner</item>
+        <item>Jessica Peake</item>
+        <item>Karen	Clarkson</item>
+        <item>Bella	Wilkins</item>
+        <item>Ian Graham</item>
+        <item>Sue Paige</item>
+        <item>Alan Newman</item>
+        <item>Thomas Bailey</item>
+        <item>Ruth Miller</item>
+        <item>Justin North</item>
+        <item>Trevor Vance</item>
+        <item>Lisa Metcalfe</item>
+        <item>Joe Payne</item>
+        <item>Andrew Coleman</item>
+        <item>Nicholas Marshall</item>
+        <item>Matt Gray</item>
+        <item>Owen Harris</item>
+        <item>Carl Powell</item>
+        <item>Jacob Quinn</item>
+        <item>Lucas Gibson</item>
+        <item>Ella Bell</item>
+
+    </array>
+
+
+
 </resources>

@@ -42,7 +42,7 @@ class Register : AppCompatActivity() {
         val editText_Phone : EditText = findViewById(R.id.editText_Phone)
         val editText_Birthday : EditText = findViewById(R.id.editText_Birthday)
         val spinner_BloodType : Spinner = findViewById(R.id.spinner_BloodType)
-        val editText_FamilyDoctor : EditText = findViewById(R.id.editText_FamilyDoctor)
+        val spinner_FamilyDoctor : Spinner = findViewById(R.id.spinner_FamilyDoctor)
         val editText_Address : EditText = findViewById(R.id.editText_Address)
         val editText_City : EditText = findViewById(R.id.editText_City)
         val editText_PostalCode : EditText = findViewById(R.id.editText_PostalCode)
@@ -99,7 +99,7 @@ class Register : AppCompatActivity() {
                     editText_Birthday.text.toString(),
                     spinner_BloodType.getSelectedItem().toString(),
                     editText_AMKA2.text.toString(),
-                    editText_FamilyDoctor.text.toString(),
+                    spinner_FamilyDoctor.getSelectedItem().toString(),
                     editText_Address.text.toString(),
                     editText_City.text.toString(),
                     editText_PostalCode.text.toString())
