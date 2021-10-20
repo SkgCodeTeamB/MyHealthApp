@@ -20,7 +20,23 @@ class AppointmentFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_appointment, container, false)
+
+        val v = inflater.inflate(R.layout.fragment_appointment, container, false)
+
+/*
+        val btn_Make_An_Appointmet= view?.findViewById<Button>(R.id.btn_Make_An_Appointment)
+
+        btn_Make_An_Appointmet?.setOnClickListener {
+            val makeAnAppointmentFragment = MakeAnAppointmentFragment()
+
+
+            val transaction : FragmentTransaction = fragmentManager.beginTransaction()
+            transaction.replace(R.id.f_container,makeAnAppointmentFragment)
+            transaction.commit()
+        }
+
+*/
+        return v
     }
 
     companion object {
