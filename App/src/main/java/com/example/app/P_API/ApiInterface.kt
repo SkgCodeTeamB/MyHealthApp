@@ -4,6 +4,7 @@ import com.example.app.Models.Appointments.*
 import com.example.app.Models.Appointments.Field
 import com.example.app.Models.Vaccinations.Vaccination
 import com.example.app.Models.Vaccinations.Vaccine
+import com.example.app.api.PrescriptionResponse
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -75,8 +76,14 @@ interface ApiInterface {
         ) fullUrl: String?
     ): Call<List<Vaccination>>
 
+
+    // PRESCRIPTION API CALL
+
+    @GET("prescription/")
+    fun getPrescriptions() : Call<List<PrescriptionResponse>>
+
     companion object {
-        var BASE_URL = "http://192.168.1.5:5000/"
+        var BASE_URL = "http://192.168.1.3:5000/"
 
         fun create() : ApiInterface {
 
