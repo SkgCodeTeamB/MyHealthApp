@@ -24,6 +24,7 @@ import okhttp3.OkHttpClient
 
 class MainActivity : AppCompatActivity() {
 
+    var loggedUser: LoginResponse? = null
 
     val BASE_URL = "http://192.168.1.5:5000/"
 
@@ -81,10 +82,53 @@ class MainActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
 
                         if (response.body() != null) {
+
                             val intentLogin = Intent(this@MainActivity, HomePage::class.java)
+                            /*
+                            intentLogin.putExtra("token", response.body()!!.token)
+                            intentLogin.putExtra("_id", response.body()!!._id)
+                            intentLogin.putExtra("name", response.body()!!.name)
+                            intentLogin.putExtra("surname", response.body()!!.surname)
+                            intentLogin.putExtra("email", response.body()!!.email)
+                            intentLogin.putExtra("phone", response.body()!!.phone)
+                            intentLogin.putExtra("birhtday", response.body()!!.birthday)
+                            intentLogin.putExtra("bloodtype", response.body()!!.bloodtype)
+                            intentLogin.putExtra("amka", response.body()!!.amka)
+                            intentLogin.putExtra("familydoctor", response.body()!!.familydoctor)
+                            intentLogin.putExtra("address", response.body()!!.address)
+                            intentLogin.putExtra("city", response.body()!!.city)
+                            intentLogin.putExtra("postalcode", response.body()!!.postalcode)
+                            */
+
                             startActivity(intentLogin)
+                            /*
+                            Handler().postDelayed({
+                                startActivity(Intent(this@MainActivity, HomePage::class.java).putExtra("token", response.body()!!.token))
+                                startActivity(Intent(this@MainActivity, HomePage::class.java).putExtra("_id", response.body()!!._id))
+                                startActivity(Intent(this@MainActivity, HomePage::class.java).putExtra("name", response.body()!!.name))
+                                startActivity(Intent(this@MainActivity, HomePage::class.java).putExtra("surname", response.body()!!.surname))
+                            }, 700)*/
                             Toast.makeText(this@MainActivity, "Your Login is successful.", Toast.LENGTH_SHORT).show()
-                            //Toast.makeText(this@MainActivity, response.body()!!.token.toString(),Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(this@MainActivity, response.body()!!.name.toString(),Toast.LENGTH_SHORT).show()
+/*
+                            if (loggedUser != null){
+                                loggedUser!!.token = response.body()!!.token
+                                loggedUser!!._id = response.body()!!._id
+                                loggedUser!!.name = response.body()!!.name
+                                loggedUser!!.surname = response.body()!!.surname
+                                loggedUser!!.email = response.body()!!.email
+                                loggedUser!!.phone = response.body()!!.phone
+                                loggedUser!!.birthday = response.body()!!.birthday
+                                loggedUser!!.bloodtype = response.body()!!.bloodtype
+                                loggedUser!!.amka = response.body()!!.amka
+                                loggedUser!!.familydoctor = response.body()!!.familydoctor
+                                loggedUser!!.address = response.body()!!.address
+                                loggedUser!!.postalcode = response.body()!!.postalcode
+                            }
+
+                            */
+
+
 
                         }else {
                             Toast.makeText(this@MainActivity, "Wrong AMKA.Please try again", Toast.LENGTH_SHORT).show()
@@ -102,12 +146,12 @@ class MainActivity : AppCompatActivity() {
 
                 })
 
-            /*
-                val intentLogin = Intent(this@MainActivity, HomePage::class.java)
-                startActivity(intentLogin)
-                Toast.makeText(this@MainActivity, "Your Login is successful.", Toast.LENGTH_SHORT).show()
+                /*
+                    val intentLogin = Intent(this@MainActivity, HomePage::class.java)
+                    startActivity(intentLogin)
+                    Toast.makeText(this@MainActivity, "Your Login is successful.", Toast.LENGTH_SHORT).show()
 
-                */
+                    */
 
 
             }
