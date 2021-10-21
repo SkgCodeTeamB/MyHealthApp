@@ -7,19 +7,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.app.api.PrescriptionData
+import com.example.app.Models.PrescriptionData
 import com.example.app.api.PrescriptionResponse
 
 import com.example.app.databinding.FragmentPrescriptionBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import android.annotation.SuppressLint
 
 import android.widget.TextView
 import com.example.app.Adapters.PrescriptionRecyclerAdapter
+import com.example.app.P_API.ApiInterface
 
 
 class PrescriptionFragment : Fragment() {
@@ -38,27 +36,16 @@ class PrescriptionFragment : Fragment() {
 
         val prescriptionList = ArrayList<PrescriptionData>()
 
+        // Calling API
+        val apiInterface = ApiInterface.create().getPrescriptions()
+        apiInterface.enqueue(object : Callback<List<PrescriptionResponse>> {
 
-        // Get data here!!!
-        val BaseUrl = "http://192.168.1.3:5000/"
-
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BaseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-
-        val service = retrofit.create(com.example.app.P_API.ApiInterface::class.java)
-        val call = service.getPrescriptions()
-
-        call.enqueue(object : Callback<List<PrescriptionResponse>> {
-            @SuppressLint("SetTextI18n")
             override fun onResponse(
                 call: Call<List<PrescriptionResponse>>?,
                 response: Response<List<PrescriptionResponse>>?
             ) {
 
+                // Getting response data
                 if (response?.body() != null)
                     for (item in response!!.body()!!) {
 
@@ -82,7 +69,6 @@ class PrescriptionFragment : Fragment() {
 
                     }
 
-
                 }
 
 
@@ -92,11 +78,11 @@ class PrescriptionFragment : Fragment() {
 
                 binding.recyclerView.adapter = adapter
 
+                // Setting counter Textview
                 var counter = view?.findViewById<TextView>(com.example.app.R.id.counterText)
                 if (counter != null) {
-                    counter.text = "Counter: "+prescriptionResponseList.size
+                    counter.text = "Counter: " + prescriptionResponseList.size
                 }
-
             }
 
             override fun onFailure(call: Call<List<PrescriptionResponse>>?, t: Throwable?) {
@@ -105,7 +91,6 @@ class PrescriptionFragment : Fragment() {
                 }
             }
         })
-
 
 
 

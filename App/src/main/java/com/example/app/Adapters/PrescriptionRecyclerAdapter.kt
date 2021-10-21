@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app.R
-import com.example.app.api.PrescriptionData
+import com.example.app.Models.PrescriptionData
 
 class PrescriptionRecyclerAdapter(private val prescriptionData: List<PrescriptionData>) :
     RecyclerView.Adapter<PrescriptionRecyclerAdapter.ViewHolder>() {
@@ -38,8 +38,6 @@ class PrescriptionRecyclerAdapter(private val prescriptionData: List<Prescriptio
 
             var text = itemView.findViewById<TextView>(R.id.item_Text_field)
             text.text = item.text
-
-
 
 
         }
