@@ -1,9 +1,11 @@
 package com.example.app
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -13,11 +15,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 
+
 class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private var drawer: DrawerLayout? = null
     private var bottomNavigationView: BottomNavigationView? = null
     private val homePageFragment: HomePageFragment = HomePageFragment.newInstance()
-    private val notificationFragment: NotificationFragment = NotificationFragment.newInstance()
     private val personalDataFragment: PersonalDataFragment = PersonalDataFragment.newInstance()
     private val diagnosesFragment: DiagnosesFragment = DiagnosesFragment.newInstance()
     private val appointmentFragment: AppointmentFragment = AppointmentFragment.newInstance()
@@ -28,6 +30,22 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_home_page)
+
+/*
+        val token = getIntent().getStringExtra("token")
+        val txtMarios: TextView? = findViewById(R.id.textViewMarios);
+        txtMarios?.setText(token)
+        setContentView(R.layout.fragment_homepage)
+
+        val txtMarios: TextView? = findViewById(R.id.textViewMarios);
+        val intent = intent
+
+        if (intent.extras != null) {
+            val passedUsername = intent.getStringExtra("_id")
+            txtMarios?.setText("Welcome $passedUsername")
+        }
+
+*/
 
         val drawer : DrawerLayout = findViewById(R.id.drawer_layout)
         //val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
@@ -47,7 +65,7 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         bottomNavigationView.setOnNavigationItemSelectedListener{ item: MenuItem ->
             var selectedFragment: Fragment? = null
             when (item.itemId) {
-                R.id.back -> {}
+                R.id.back -> { onBackPressed()}
                 R.id.home_page2 -> selectedFragment = homePageFragment
                 R.id.personal_data2 -> selectedFragment = personalDataFragment
 
@@ -59,6 +77,7 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
             }
             true
         }
+
 
         val navigationView = findViewById<NavigationView>(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
@@ -87,8 +106,10 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
                 }
 
                 R.id.logOut -> {
-
-                }
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
+                    Toast.makeText(this@HomePage, "Your Logout is successful.", Toast.LENGTH_SHORT).show()}
             }
             val transaction = supportFragmentManager.beginTransaction()
             if (selectedFragment2 != null) {
