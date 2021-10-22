@@ -1,10 +1,13 @@
-package com.example.app.P_API
+package com.example.app
 
 import com.example.app.Models.Appointments.*
 import com.example.app.Models.Appointments.Field
 import com.example.app.Models.Vaccinations.Vaccination
 import com.example.app.Models.Vaccinations.Vaccine
 import com.example.app.api.PrescriptionResponse
+import com.example.app.api.RegisterResponse
+import com.example.dummyappointmentsapp.Models.LoginInfo
+import com.example.dummyappointmentsapp.Models.LoginResponse
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -77,14 +80,39 @@ interface ApiInterface {
     ): Call<List<Vaccination>>
 
 
+    //LOGIN API CALLS
+
+    @POST("/user/login")
+    fun login(@Body loginInfo: LoginInfo): Call<LoginResponse>
+
+
+    //REGISTER API CALLS
+
+    @FormUrlEncoded
+    @POST("user/register/")
+    fun addUser(
+        @retrofit2.http.Field("name") name: String,
+        @retrofit2.http.Field("surname") surname: String,
+        @retrofit2.http.Field("email") email: String,
+        @retrofit2.http.Field("phone") phone: String,
+        @retrofit2.http.Field("birthday") birthday: String,
+        @retrofit2.http.Field("bloodtype") bloodtype: String,
+        @retrofit2.http.Field("amka") amka: String,
+        @retrofit2.http.Field("familydoctor") familydoctor: String,
+        @retrofit2.http.Field("address") address: String,
+        @retrofit2.http.Field("city") city: String,
+        @retrofit2.http.Field("postalcode") postalcode: String
+    ): Call<RegisterResponse>
+
+
     // PRESCRIPTION API CALL
 
     @GET("prescription/")
     fun getPrescriptions() : Call<List<PrescriptionResponse>>
 
     companion object {
-        //var BASE_URL = "http://192.168.1.5:5000/"
-        var BASE_URL = "http://192.168.1.3:5000/"
+        var BASE_URL = "http://192.168.1.5:5000/"
+        //var BASE_URL = "http://192.168.1.3:5000/"
 
         fun create() : ApiInterface {
 

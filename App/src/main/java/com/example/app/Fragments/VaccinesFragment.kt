@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.app.P_API.ApiInterface
+import com.example.app.ApiInterface
 import com.example.app.R
 import com.example.app.Models.Vaccinations.Vaccination
 import com.example.app.Models.Vaccinations.Vaccine

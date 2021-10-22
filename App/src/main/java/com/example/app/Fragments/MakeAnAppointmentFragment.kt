@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.app.Models.Appointments.*
-import com.example.app.P_API.ApiInterface
+import com.example.app.ApiInterface
 import com.example.app.R
 import retrofit2.Call
 import retrofit2.Response

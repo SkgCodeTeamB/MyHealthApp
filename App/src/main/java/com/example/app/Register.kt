@@ -9,16 +9,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.widget.Toast
-import com.example.app.api.ApiInterface
 import com.example.app.api.RegisterResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import com.google.gson.GsonBuilder
-
-
-
-
-
 
 
 class Register : AppCompatActivity() {

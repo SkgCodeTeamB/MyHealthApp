@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.app.P_API.ApiInterface
+import com.example.app.ApiInterface
 import retrofit2.Call
 import retrofit2.Response
 

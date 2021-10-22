@@ -17,7 +17,7 @@ import retrofit2.Response
 
 import android.widget.TextView
 import com.example.app.Adapters.PrescriptionRecyclerAdapter
-import com.example.app.P_API.ApiInterface
+import com.example.app.ApiInterface
 
 
 class PrescriptionFragment : Fragment() {
