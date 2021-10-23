@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
                             //println(loggedUser.token)
                             //println(loggedUser.user.surname)
                             val intentLogin = Intent(this@MainActivity, HomePage::class.java)
+                            intentLogin.putExtra("_ID", loggedUser!!.user._id)
                             startActivity(intentLogin)
                             Toast.makeText(this@MainActivity, "Successful Login", Toast.LENGTH_SHORT).show()
                         }else {

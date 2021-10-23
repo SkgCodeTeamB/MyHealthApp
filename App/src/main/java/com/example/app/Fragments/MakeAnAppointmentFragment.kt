@@ -32,14 +32,13 @@ class MakeAnAppointmentFragment : Fragment() {
 
     var doctorsIDList = arrayListOf<String>()
 
-    var user_id = "6166f4778ba0b351dec0d1ab" //get logged user's _id, TO BE CHANGED
+    var user_id = ""
     var doctor_id = ""
     var date = ""
     var time = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -54,12 +53,15 @@ class MakeAnAppointmentFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         contentInit()
         populateFieldSpinner()
     }
 
     private fun contentInit() {
+        user_id = arguments?.getString("_id").toString()
+        println("MakeAnAppointmentFragment check:")
+        println(user_id)
+
         fieldSpinner = view?.findViewById(R.id.fieldSpinner)
         doctorSpinner = view?.findViewById(R.id.doctorSpinner)
         dateSpinner = view?.findViewById(R.id.dateSpinner)
