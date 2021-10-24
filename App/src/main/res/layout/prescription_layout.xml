@@ -6,6 +6,9 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     app:cardBackgroundColor="#FFFFFF"
+    android:foreground="@drawable/border"
+
+
     app:cardCornerRadius="12dp"
     app:cardElevation="3dp"
     app:contentPadding="4dp">
@@ -18,7 +21,7 @@
 
         <TextView
             android:id="@+id/item_SpecialityText"
-            android:layout_width="160dp"
+            android:layout_width="180dp"
             android:layout_height="20dp"
             android:layout_marginStart="16dp"
             android:textSize="15sp"
@@ -40,7 +43,7 @@
 
         <TextView
             android:id="@+id/item_DateText"
-            android:layout_width="160dp"
+            android:layout_width="150dp"
             android:layout_height="20dp"
             android:layout_marginStart="16dp"
             android:textSize="15sp"

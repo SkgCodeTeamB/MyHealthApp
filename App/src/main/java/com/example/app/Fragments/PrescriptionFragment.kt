@@ -1,6 +1,7 @@
 package com.example.app.Fragments
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -55,7 +56,7 @@ class PrescriptionFragment : Fragment() {
 
                         prescriptionResponseList.add(
                             PrescriptionData(
-                                item.doctor.name,
+                                "From:  "+item.doctor.name,
                                 item.date,
                                 item.text
                             )
@@ -76,7 +77,7 @@ class PrescriptionFragment : Fragment() {
                 // Setting 'counter' Textview
                 val counter = view?.findViewById<TextView>(com.example.app.R.id.counterText)
                 if (counter != null) {
-                    counter.text = "Counter: " + prescriptionResponseList.size
+                    counter.text = "  Prescriptions: (" + prescriptionResponseList.size+")"
                 }
 
 

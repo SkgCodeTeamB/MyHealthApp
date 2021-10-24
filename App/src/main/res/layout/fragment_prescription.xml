@@ -14,9 +14,13 @@
         />
 
     <TextView
+        android:layout_marginTop="15dp"
+
         android:id="@+id/counterText"
-        android:layout_width="100dp"
+        android:background="@drawable/round_corner"
+        android:layout_width="130dp"
         android:layout_height="20dp"
+        android:textColor="@color/white"
         android:layout_marginBottom="10dp"
         />
 
