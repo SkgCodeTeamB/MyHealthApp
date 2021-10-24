@@ -23,7 +23,7 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
     private val personalDataFragment: PersonalDataFragment = PersonalDataFragment.newInstance()
     private val diagnosesFragment: DiagnosesFragment = DiagnosesFragment.newInstance()
     private val appointmentFragment: AppointmentFragment = AppointmentFragment.newInstance()
-    //private val prescriptionFragment: PrescriptionFragment = PrescriptionFragment.newInstance()
+    private val prescriptionFragment: PrescriptionFragment = PrescriptionFragment.newInstance()
     private val vaccinesFragment: VaccinesFragment = VaccinesFragment.newInstance()
     private val makeAnAppointmentFragment: MakeAnAppointmentFragment = MakeAnAppointmentFragment.newInstance()
 

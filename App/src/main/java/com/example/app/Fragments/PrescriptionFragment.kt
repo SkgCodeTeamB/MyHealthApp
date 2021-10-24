@@ -1,5 +1,6 @@
 package com.example.app.Fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +26,6 @@ class PrescriptionFragment : Fragment() {
     private lateinit var adapter: PrescriptionRecyclerAdapter
     private var _binding: FragmentPrescriptionBinding? = null
     private val binding get() = _binding!!
-    private val prescriptionResponseList = ArrayList<PrescriptionData>()
 
 
     override fun onCreateView(
@@ -34,16 +34,20 @@ class PrescriptionFragment : Fragment() {
     ): View? {
         _binding = FragmentPrescriptionBinding.inflate(inflater, container, false)
 
-        val prescriptionList = ArrayList<PrescriptionData>()
+        val prescriptionList: ArrayList<PrescriptionData> = ArrayList<PrescriptionData>()
+        val prescriptionResponseList: ArrayList<PrescriptionData> = ArrayList<PrescriptionData>()
+
 
         // Calling API
-        val apiInterface = ApiInterface.create().getPrescriptions()
+        val apiInterface = ApiInterface.create().getUsersPrescriptions("616464bab36b1cf6f0da7f3c")
         apiInterface.enqueue(object : Callback<List<PrescriptionResponse>> {
 
+            @SuppressLint("SetTextI18n")
             override fun onResponse(
                 call: Call<List<PrescriptionResponse>>?,
                 response: Response<List<PrescriptionResponse>>?
             ) {
+
 
                 // Getting response data
                 if (response?.body() != null)
@@ -62,27 +66,26 @@ class PrescriptionFragment : Fragment() {
 
                 if (prescriptionResponseList.size > 0) {
 
+                    // Setting up tha data for the recuclerview
                     for (item in prescriptionResponseList) {
-
-                        //Toast.makeText(context, item.text + "    " + item.date, Toast.LENGTH_SHORT).show()
                         prescriptionList.add(item)
-
                     }
 
                 }
 
-
-                adapter = PrescriptionRecyclerAdapter(prescriptionList)
-
-                binding.recyclerView.layoutManager = LinearLayoutManager(context)
-
-                binding.recyclerView.adapter = adapter
-
-                // Setting counter Textview
-                var counter = view?.findViewById<TextView>(com.example.app.R.id.counterText)
+                // Setting 'counter' Textview
+                val counter = view?.findViewById<TextView>(com.example.app.R.id.counterText)
                 if (counter != null) {
                     counter.text = "Counter: " + prescriptionResponseList.size
                 }
+
+
+                // Create View
+                adapter = PrescriptionRecyclerAdapter(prescriptionList)
+                binding.recyclerView.layoutManager = LinearLayoutManager(context)
+                binding.recyclerView.adapter = adapter
+
+
             }
 
             override fun onFailure(call: Call<List<PrescriptionResponse>>?, t: Throwable?) {

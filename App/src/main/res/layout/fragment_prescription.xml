@@ -17,7 +17,6 @@
         android:id="@+id/counterText"
         android:layout_width="100dp"
         android:layout_height="20dp"
-        android:text="Counter: 0"
         android:layout_marginBottom="10dp"
         />
 
