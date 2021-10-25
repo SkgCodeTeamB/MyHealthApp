@@ -79,7 +79,7 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         bottomNavigationView.setOnNavigationItemSelectedListener{ item: MenuItem ->
             var selectedFragment: Fragment? = null
             when (item.itemId) {
-                R.id.back -> { onBackPressed()}
+                R.id.appointment -> selectedFragment = appointmentFragment
                 R.id.home_page2 -> selectedFragment = homePageFragment
                 R.id.personal_data2 -> selectedFragment = personalDataFragment
 
@@ -106,7 +106,10 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
                     ft.replace(R.id.f_container, homePageFragment)
                 }
 
-                R.id.appointment -> selectedFragment2 = appointmentFragment
+                R.id.appointment -> {
+                    bottomNavigationView.selectedItemId = R.id.appointment
+                    ft.replace(R.id.f_container, appointmentFragment)
+                }
 
                 R.id.diagnoses -> selectedFragment2 = diagnosesFragment
 

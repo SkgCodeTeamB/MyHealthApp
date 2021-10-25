@@ -1,8 +1,13 @@
 package com.example.app
 
+import android.app.DatePickerDialog
+import android.content.ContentValues.TAG
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.*
 import retrofit2.Call
@@ -12,13 +17,16 @@ import android.widget.Toast
 import com.example.app.api.RegisterResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 
 
 class Register : AppCompatActivity() {
 
-    val BASE_URL = "http://192.168.1.5:5000/"
+    //val BASE_URL = "http://192.168.1.5:5000/"
+    val BASE_URL = "http://192.168.0.199:5000/"
 
-
+    private var mDisplayDate: TextView? = null
+    private var mDateSetListener: DatePickerDialog.OnDateSetListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,12 +41,43 @@ class Register : AppCompatActivity() {
         val editText_AMKA2 : EditText = findViewById(R.id.editText_AMKA2)
         val editText_Email : EditText = findViewById(R.id.editText_Email)
         val editText_Phone : EditText = findViewById(R.id.editText_Phone)
-        val editText_Birthday : EditText = findViewById(R.id.editText_Birthday)
+        //val editText_Birthday : EditText = findViewById(R.id.editText_Birthday)
         val spinner_BloodType : Spinner = findViewById(R.id.spinner_BloodType)
         val spinner_FamilyDoctor : Spinner = findViewById(R.id.spinner_FamilyDoctor)
         val editText_Address : EditText = findViewById(R.id.editText_Address)
         val editText_City : EditText = findViewById(R.id.editText_City)
         val editText_PostalCode : EditText = findViewById(R.id.editText_PostalCode)
+
+
+        //Birthday Dialog
+        mDisplayDate = findViewById(R.id.editText_Birthday) as EditText?
+        mDisplayDate!!.setOnClickListener {
+            val cal = Calendar.getInstance()
+            val year = cal[Calendar.YEAR]
+            val month = cal[Calendar.MONTH]
+            val day = cal[Calendar.DAY_OF_MONTH]
+            val dialog = DatePickerDialog(
+                this@Register,
+                android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                mDateSetListener,
+                year, month, day
+            )
+            dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.show()
+        }
+        mDateSetListener =
+            DatePickerDialog.OnDateSetListener { datePicker, year, month, day ->
+                var month = month
+                month = month + 1
+                Log.d(
+                    TAG,
+                    "onDateSet: mm/dd/yyy: $day/$month/$year"
+                )
+                val date = "$day/$month/$year"
+                mDisplayDate!!.text = date
+            }
+
+
 
         btn_Register2.setOnClickListener {
             //check if the EditText have values or not
@@ -62,8 +101,9 @@ class Register : AppCompatActivity() {
                 editText_Phone.error = "Required"
                 Toast.makeText(applicationContext, "Phone is Required", Toast.LENGTH_SHORT).show()
             }
-            else if(editText_Birthday.text.toString().trim().isEmpty()){
-                editText_Birthday.error = "Required"
+
+            else if((mDisplayDate as EditText).text.toString().trim().isEmpty()){
+                (mDisplayDate as EditText).error = "Required"
                 Toast.makeText(applicationContext, "Birthday is Required", Toast.LENGTH_SHORT).show()
             }
 
@@ -89,7 +129,7 @@ class Register : AppCompatActivity() {
                     editText_Surname.text.toString(),
                     editText_Email.text.toString(),
                     editText_Phone.text.toString(),
-                    editText_Birthday.text.toString(),
+                    (mDisplayDate as EditText).text.toString(),
                     spinner_BloodType.getSelectedItem().toString(),
                     editText_AMKA2.text.toString(),
                     spinner_FamilyDoctor.getSelectedItem().toString(),
