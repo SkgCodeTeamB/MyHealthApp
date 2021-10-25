@@ -18,7 +18,6 @@ class PersonalDataFragment : Fragment() {
     var user_id: String? = null
     var userInfo: User? = null
 
-    var textId: TextView? = null
     var textName: TextView? = null
     var textSurname: TextView? = null
     var textEmail: TextView? = null
@@ -79,21 +78,18 @@ class PersonalDataFragment : Fragment() {
     }
 
     private fun showPersonalData() {
-        /*textId = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
-        textName = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
-        textSurname = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
-        textEmail = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
-        textPhone = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
-        textBirthday = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
-        textBloodtype = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
-        textAmka = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
-        textFamilydoctor = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
-        textAddress = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
-        textCity = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
-        textPostalcode = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")*/
+        textName = view?.findViewById(com.example.app.R.id.txt_Name)
+        textSurname = view?.findViewById(com.example.app.R.id.txt_Surname)
+        //textEmail = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
+        //textPhone = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
+        textBirthday = view?.findViewById(com.example.app.R.id.txt_Birthday)
+        textBloodtype = view?.findViewById(com.example.app.R.id.txt_BlooType)
+        textAmka = view?.findViewById(com.example.app.R.id.txt_AMKA)
+        textFamilydoctor = view?.findViewById(com.example.app.R.id.txt_FamilyDoctor)
+        //textAddress = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
+        //textCity = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
+        //textPostalcode = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
 
-
-        val userId = userInfo?._id
         val userName = userInfo?.name
         val userSurname = userInfo?.surname
         val userEmail = userInfo?.email
@@ -106,7 +102,6 @@ class PersonalDataFragment : Fragment() {
         val userCity = userInfo?.city
         val userPostalcode = userInfo?.postalcode
 
-        textId?.text = userId
         textName?.text = userName
         textSurname?.text = userSurname
         textEmail?.text = userEmail
