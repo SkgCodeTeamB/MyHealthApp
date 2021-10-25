@@ -8,6 +8,7 @@ import com.example.app.api.PrescriptionResponse
 import com.example.app.api.RegisterResponse
 import com.example.dummyappointmentsapp.Models.LoginInfo
 import com.example.dummyappointmentsapp.Models.LoginResponse
+import com.example.dummyappointmentsapp.Models.User
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -114,6 +115,17 @@ interface ApiInterface {
             encoded = true
         ) fullUrl: String?
     ): Call<List<PrescriptionResponse>>
+
+
+    //PERSONAL DATA API CALLS
+
+    @GET("user/{user_id}")
+    fun getPersonalData(
+        @Path(
+            value = "user_id",
+            encoded = true
+        ) fullUrl: String?
+    ): Call<List<User>>
 
     companion object {
         var BASE_URL = "http://192.168.1.5:5000/"
