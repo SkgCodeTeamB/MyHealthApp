@@ -9,12 +9,13 @@
     app:cardCornerRadius="12dp"
     app:cardElevation="3dp"
     app:contentPadding="4dp"
-    app:cardBackgroundColor="@color/cardview_shadow_end_color">
+    android:foreground="@drawable/border">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relativeL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:padding="16dp">
 
 
