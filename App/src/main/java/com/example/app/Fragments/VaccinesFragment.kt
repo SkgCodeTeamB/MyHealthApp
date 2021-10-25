@@ -27,7 +27,7 @@ class VaccinesFragment : Fragment() {
     lateinit var vaccination: Vaccination
     var vaccinationsList = arrayListOf<Vaccination>()
 
-    val user_id = "6166f4778ba0b351dec0d1ab" //TO BE CHANGED TO LOGGED USER'S _ID
+    var user_id: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +46,8 @@ class VaccinesFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        user_id = arguments?.getString("_id").toString()
 
         val apiInterface = ApiInterface.create().getVaccines()
         apiInterface.enqueue( object : retrofit2.Callback<List<Vaccine>> {
