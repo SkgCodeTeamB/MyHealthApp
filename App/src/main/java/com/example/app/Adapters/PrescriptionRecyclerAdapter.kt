@@ -37,7 +37,7 @@ class PrescriptionRecyclerAdapter(private val prescriptionData: List<Prescriptio
 
         @SuppressLint("CutPasteId")
         fun bindItem(item: PrescriptionData) {
-            var doctorsName = itemView.findViewById<TextView>(R.id.item_SpecialityText)
+            var doctorsName = itemView.findViewById<TextView>(R.id.item_from)
             doctorsName.text = item.doctorsName
 
             var date = itemView.findViewById<TextView>(R.id.item_DateText)

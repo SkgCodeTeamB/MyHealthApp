@@ -4,6 +4,7 @@ import com.example.app.Models.Appointments.*
 import com.example.app.Models.Appointments.Field
 import com.example.app.Models.Vaccinations.Vaccination
 import com.example.app.Models.Vaccinations.Vaccine
+import com.example.app.api.AppointmentResponse
 import com.example.app.api.PrescriptionResponse
 import com.example.app.api.RegisterResponse
 import com.example.dummyappointmentsapp.Models.LoginInfo
@@ -107,7 +108,6 @@ interface ApiInterface {
 
 
     // PRESCRIPTION API CALL
-
     @GET("prescription/{user_id}")
     fun getUsersPrescriptions(
         @Path(
@@ -126,6 +126,15 @@ interface ApiInterface {
             encoded = true
         ) fullUrl: String?
     ): Call<List<User>>
+
+    // Appointment API CALL
+    @GET("appointment/{user_id}")
+    fun getUsersAppointments(
+        @Path(
+            value = "user_id",
+            encoded = true
+        ) fullUrl: String?
+    ): Call<List<AppointmentResponse>>
 
     companion object {
         var BASE_URL = "http://192.168.1.5:5000/"
