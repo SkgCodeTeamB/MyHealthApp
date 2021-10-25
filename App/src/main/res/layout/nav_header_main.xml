@@ -10,9 +10,9 @@
 
 
     <TextView
-        android:layout_width="92dp"
-        android:layout_height="46dp"
-        android:paddingTop="8dp"
+        android:layout_width="95dp"
+        android:layout_height="21dp"
+        android:layout_marginBottom="-3dp"
         android:text="My Health"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
