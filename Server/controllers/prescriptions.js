@@ -33,7 +33,7 @@ export const addPrescription = async (req, res) => {
 // Returns all the users prescriptions
 export const getUsersPrescriptions = async (req, res) => {
     try {
-        const prescriptions = await PrescriptionsSchema.find({user: await UserSchema.find({_id: req.params.id})}).populate('doctor');
+        const prescriptions = await PrescriptionsSchema.find({user: await UserSchema.find({_id: req.params.id})}).populate('user').populate('doctor');
 
         res.status(200).json(prescriptions);
     } catch (err) {
