@@ -92,6 +92,7 @@ class PersonalDataFragment : Fragment() {
         textCity = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")
         textPostalcode = view?.findViewById(com.example.app.R.id."COMPONENT_NAME")*/
 
+
         val userId = userInfo?._id
         val userName = userInfo?.name
         val userSurname = userInfo?.surname
