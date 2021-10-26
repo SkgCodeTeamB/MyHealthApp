@@ -65,7 +65,7 @@ class AppointmentFragment : Fragment() {
 
                         appointmentResponseList.add(
                             AppointmentData(
-                                "With :  "+item.doctor.name, item.date, item.time
+                                "Doctor :  "+item.doctor.name, item.date, item.time
                             )
                         )
 

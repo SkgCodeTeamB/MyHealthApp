@@ -62,7 +62,7 @@ class DiagnosesFragment : Fragment() {
 
                         diagnosesResponseList.add(
                             DiagnosesData(
-                                "From:  "+item.doctor.name,
+                                "Doctor:  "+item.doctor.name,
                                 item.date,
                                 item.text
                             )

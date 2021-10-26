@@ -56,7 +56,7 @@ class PrescriptionFragment : Fragment() {
 
                         prescriptionResponseList.add(
                             PrescriptionData(
-                                "From:  "+item.doctor.name,
+                                "Doctor:  "+item.doctor.name,
                                 item.date,
                                 item.text
                             )

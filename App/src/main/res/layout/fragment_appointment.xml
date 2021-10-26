@@ -45,6 +45,7 @@
         android:layout_marginBottom="80dp"
         style="@style/FabshapeStyle1"
         android:src="@drawable/ic_btn_add"
+        android:layout_marginEnd="4dp"
         android:backgroundTint="#3C7AB3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
