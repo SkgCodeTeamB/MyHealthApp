@@ -27,7 +27,7 @@ class PrescriptionFragment : Fragment() {
     private lateinit var adapter: PrescriptionRecyclerAdapter
     private var _binding: FragmentPrescriptionBinding? = null
     private val binding get() = _binding!!
-
+    var user_id: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,10 +37,11 @@ class PrescriptionFragment : Fragment() {
 
         val prescriptionList: ArrayList<PrescriptionData> = ArrayList<PrescriptionData>()
         val prescriptionResponseList: ArrayList<PrescriptionData> = ArrayList<PrescriptionData>()
+        user_id = arguments?.getString("_id").toString()
 
 
         // Calling API
-        val apiInterface = ApiInterface.create().getUsersPrescriptions("616464bab36b1cf6f0da7f3c")
+        val apiInterface = ApiInterface.create().getUsersPrescriptions(user_id)
         apiInterface.enqueue(object : Callback<List<PrescriptionResponse>> {
 
             @SuppressLint("SetTextI18n")

@@ -46,9 +46,10 @@ class AppointmentFragment : Fragment() {
         val appointmentList: ArrayList<AppointmentData> = ArrayList<AppointmentData>()
         val appointmentResponseList: ArrayList<AppointmentData> = ArrayList<AppointmentData>()
 
+        user_id = arguments?.getString("_id").toString()
 
         // Calling API
-        val apiInterface = ApiInterface.create().getUsersAppointments("616464bab36b1cf6f0da7f3c")
+        val apiInterface = ApiInterface.create().getUsersAppointments(user_id)
         apiInterface.enqueue(object : Callback<List<AppointmentResponse>> {
 
             @SuppressLint("SetTextI18n")
@@ -119,7 +120,6 @@ class AppointmentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        user_id = arguments?.getString("_id").toString()
 
         btn_Make_An_Appointment =
             view.findViewById<FloatingActionButton>(R.id.btn_Make_An_Appointment)

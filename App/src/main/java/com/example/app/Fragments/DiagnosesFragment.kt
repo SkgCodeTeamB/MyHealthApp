@@ -33,6 +33,7 @@ class DiagnosesFragment : Fragment() {
     private lateinit var adapter: DiagnosesRecyclerAdapter
     private var _binding: FragmentDiagnosesBinding? = null
     private val binding get() = _binding!!
+    var user_id: String? = null
 
 
     override fun onCreateView(
@@ -44,9 +45,10 @@ class DiagnosesFragment : Fragment() {
         val diagnosesList: ArrayList<DiagnosesData> = ArrayList<DiagnosesData>()
         val diagnosesResponseList: ArrayList<DiagnosesData> = ArrayList<DiagnosesData>()
 
+        user_id = arguments?.getString("_id").toString()
 
     // Calling API
-        val apiInterface = ApiInterface.create().getUsersDiagnoses("616464bab36b1cf6f0da7f3c")
+        val apiInterface = ApiInterface.create().getUsersDiagnoses(user_id)
         apiInterface.enqueue(object : Callback<List<DiagnosesResponse>> {
 
             @SuppressLint("SetTextI18n")
