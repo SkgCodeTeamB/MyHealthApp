@@ -5,6 +5,8 @@ import com.example.app.Models.Appointments.Field
 import com.example.app.Models.Vaccinations.Vaccination
 import com.example.app.Models.Vaccinations.Vaccine
 import com.example.app.api.AppointmentResponse
+import com.example.app.api.DiagnosesResponse
+
 import com.example.app.api.PrescriptionResponse
 import com.example.app.api.RegisterResponse
 import com.example.dummyappointmentsapp.Models.LoginInfo
@@ -136,10 +138,20 @@ interface ApiInterface {
         ) fullUrl: String?
     ): Call<List<AppointmentResponse>>
 
+    // Diagnoses API CALL
+    @GET("diagnose/{user_id}")
+    fun getUsersDiagnoses(
+        @Path(
+            value = "user_id",
+            encoded = true
+        ) fullUrl: String?
+    ): Call<List<DiagnosesResponse>>
+
+
     companion object {
         //var BASE_URL = "http://192.168.1.5:5000/"
-        //var BASE_URL = "http://192.168.1.3:5000/"
-        var BASE_URL = "http://192.168.0.199:5000/"
+        var BASE_URL = "http://192.168.1.3:5000/"
+        //var BASE_URL = "http://192.168.0.199:5000/"
 
         fun create(): ApiInterface {
 
