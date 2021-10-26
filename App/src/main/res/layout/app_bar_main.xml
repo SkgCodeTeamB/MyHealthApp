@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#64aef1">
+        android:background="#2AC8B7">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:id="@+id/leftRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#64aef1"
+                android:background="#2AC8B7"
                 android:src="@drawable/ic_menu_black" />
 
         </RelativeLayout>

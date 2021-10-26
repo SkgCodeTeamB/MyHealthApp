@@ -6,8 +6,6 @@
     android:layout_margin="5dp"
     android:foreground="@drawable/border"
     app:cardBackgroundColor="#FFFFFF"
-
-
     app:cardCornerRadius="12dp"
     app:cardElevation="3dp"
     app:contentPadding="4dp">
