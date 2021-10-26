@@ -1,6 +1,6 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/prescription_layout"
+    android:id="@+id/appointment_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
@@ -15,51 +15,24 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="105dp"
+        android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <TextView
-            android:id="@+id/item_Speciality"
-            android:layout_width="150dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="16dp"
-            android:textSize="15sp"
-            android:text=" Speciallity: "
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/item_Doctor"
-            android:layout_width="150dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="16dp"
-            android:textSize="15sp"
-            android:text=" Doctor: "
-            app:layout_constraintLeft_toRightOf="@+id/item_Speciality"
-            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
             android:id="@+id/item_SpecialityText_field"
-            android:layout_width="150dp"
+            android:layout_width="300dp"
             android:layout_height="20dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:textSize="15sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/item_Speciality" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-        <TextView
-            android:id="@+id/item_DoctorText_field"
-            android:layout_width="150dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
 
-            android:textSize="15sp"
-            app:layout_constraintLeft_toRightOf="@+id/item_SpecialityText_field"
-            app:layout_constraintTop_toBottomOf="@id/item_Doctor" />
 
 
         <TextView
@@ -79,8 +52,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:textSize="15sp"
-            app:layout_constraintLeft_toRightOf="@+id/item_SpecialityText_field"
-            app:layout_constraintTop_toBottomOf="@id/item_DoctorText_field" />
+            app:layout_constraintLeft_toRightOf="@+id/item_Date_field"
+            app:layout_constraintTop_toBottomOf="@id/item_SpecialityText_field" />
 
 
 
