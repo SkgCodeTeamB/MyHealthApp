@@ -5,25 +5,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.app.Adapters.ApointmentsRecyclerAdapter
-import com.example.app.Adapters.PrescriptionRecyclerAdapter
+import com.example.app.Adapters.AppointmentsRecyclerAdapter
 import com.example.app.ApiInterface
-import com.example.app.Models.Appointments.Appointment
-import com.example.app.Models.Appointments.RecyclerData
-import com.example.app.Models.PrescriptionData
+import com.example.app.Models.Appointments.AppointmentData
 import com.example.app.R
 import com.example.app.api.AppointmentResponse
-import com.example.app.api.PrescriptionResponse
 import com.example.app.databinding.FragmentAppointmentBinding
-import com.example.app.databinding.FragmentPrescriptionBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import retrofit2.Call
 import retrofit2.Callback
@@ -34,7 +25,7 @@ class AppointmentFragment : Fragment() {
     private val makeAnAppointmentFragment: MakeAnAppointmentFragment =
         MakeAnAppointmentFragment.newInstance()
     var user_id: String? = null
-    private lateinit var adapter: ApointmentsRecyclerAdapter
+    private lateinit var adapter: AppointmentsRecyclerAdapter
     private var _binding: FragmentAppointmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var btn_Make_An_Appointment: FloatingActionButton
@@ -52,8 +43,8 @@ class AppointmentFragment : Fragment() {
 
         _binding = FragmentAppointmentBinding.inflate(inflater, container, false)
 
-        val appointmentList: ArrayList<RecyclerData> = ArrayList<RecyclerData>()
-        val appointmentResponseList: ArrayList<RecyclerData> = ArrayList<RecyclerData>()
+        val appointmentList: ArrayList<AppointmentData> = ArrayList<AppointmentData>()
+        val appointmentResponseList: ArrayList<AppointmentData> = ArrayList<AppointmentData>()
 
 
         // Calling API
@@ -73,8 +64,8 @@ class AppointmentFragment : Fragment() {
 
 
                         appointmentResponseList.add(
-                            RecyclerData(
-                                item.doctor.name, item.doctor.name, item.date, item.time
+                            AppointmentData(
+                                "With :  "+item.doctor.name, item.date, item.time
                             )
                         )
 
@@ -98,9 +89,9 @@ class AppointmentFragment : Fragment() {
 
 
                 // Create View
-                adapter = ApointmentsRecyclerAdapter(appointmentList)
-                binding.recyclerView.layoutManager = LinearLayoutManager(context)
-                binding.recyclerView.adapter = adapter
+                adapter = AppointmentsRecyclerAdapter(appointmentList)
+                binding.recyclerViewAppointment.layoutManager = LinearLayoutManager(context)
+                binding.recyclerViewAppointment.adapter = adapter
 
 
             }
@@ -145,23 +136,7 @@ class AppointmentFragment : Fragment() {
             transaction?.replace(R.id.f_container, makeAnAppointmentFragment)
             transaction?.commit()
         }
-        var recycler = view.findViewById<RecyclerView>(R.id.recyclerView)
 
-//
-//        var scrollListener = object : RecyclerView.OnScrollListener() {
-//            override fun onScrollStateChanged(recyclerView: RecyclerView, dy: Int) {
-//                super.onScrollStateChanged(recyclerView, dy)
-//                if (dy > 0) {
-//                    btn_Make_An_Appointment.hide()
-//                } else {
-//                    btn_Make_An_Appointment.show()
-//                }
-//
-//            }
-//
-//            recycler.addOnScrollListener(scrollListener)
-//
-//        }
 
     }
 

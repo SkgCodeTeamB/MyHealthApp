@@ -1,20 +1,16 @@
 package com.example.app.Adapters
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.app.Models.Appointments.Appointment
-import com.example.app.Models.Appointments.RecyclerData
+import com.example.app.Models.Appointments.AppointmentData
 import com.example.app.R
-import com.example.app.Models.PrescriptionData
 
-class ApointmentsRecyclerAdapter(private val appointmentData: List<RecyclerData>) :
-    RecyclerView.Adapter<ApointmentsRecyclerAdapter.ViewHolder>() {
+class AppointmentsRecyclerAdapter(private val appointmentData: List<AppointmentData>) :
+    RecyclerView.Adapter<AppointmentsRecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v =
@@ -23,7 +19,7 @@ class ApointmentsRecyclerAdapter(private val appointmentData: List<RecyclerData>
         return ViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: ApointmentsRecyclerAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AppointmentsRecyclerAdapter.ViewHolder, position: Int) {
         holder.bindItem(appointmentData[position])
     }
 
@@ -35,12 +31,10 @@ class ApointmentsRecyclerAdapter(private val appointmentData: List<RecyclerData>
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         @SuppressLint("CutPasteId")
-        fun bindItem(item: RecyclerData) {
+        fun bindItem(item: AppointmentData) {
 
-            var specialityField = itemView.findViewById<TextView>(R.id.item_SpecialityText_field)
-            specialityField.text = item.speciallity
 
-            var doctorsName = itemView.findViewById<TextView>(R.id.item_DoctorText_field)
+            var doctorsName = itemView.findViewById<TextView>(R.id.item_SpecialityText_field)
             doctorsName.text = item.doctor
 
             var date = itemView.findViewById<TextView>(R.id.item_Date_field)
