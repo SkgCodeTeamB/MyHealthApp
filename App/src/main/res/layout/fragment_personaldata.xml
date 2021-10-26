@@ -21,7 +21,7 @@
             android:layout_height="wrap_content" />
 
         <ImageView
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:id="@+id/image_PersonalData"
             android:background="@drawable/round_corner"
             android:layout_marginStart="4dp"
