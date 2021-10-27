@@ -55,8 +55,10 @@ class VaccinesFragment : Fragment() {
             override fun onResponse(call: Call<List<Vaccine>>?, response: Response<List<Vaccine>>?) {
                 if(response?.body() != null){
                     for (i in response.body()!!.indices) {
-                        vaccine = Vaccine(response.body()!![i]._id, response.body()!![i].name, response.body()!![i].id)
-                        vaccinesList.add(vaccine)
+                        if(vaccinesList.size<11) {
+                            vaccine = Vaccine(response.body()!![i]._id, response.body()!![i].name, response.body()!![i].id)
+                            vaccinesList.add(vaccine)
+                        }
                     }
                     loadVaccinationList()
                 }
