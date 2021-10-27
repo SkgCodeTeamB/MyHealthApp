@@ -40,28 +40,4 @@
         />
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_Make_An_Appointment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        style="@style/FabshapeStyle1"
-        android:layout_marginEnd="4dp"
-        android:backgroundTint="#3C7AB3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="97dp"
-        android:elevation="30dp"
-        android:text="Share"
-        android:layout_marginEnd="8dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
