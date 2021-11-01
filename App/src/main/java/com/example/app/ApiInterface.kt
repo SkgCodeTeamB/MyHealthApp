@@ -149,9 +149,9 @@ interface ApiInterface {
 
 
     companion object {
-        //var BASE_URL = "http://192.168.1.5:5000/"
+        var BASE_URL = "http://192.168.1.6:5000/"
         //var BASE_URL = "http://192.168.1.3:5000/"
-        var BASE_URL = "http://192.168.0.199:5000/"
+        //var BASE_URL = "http://192.168.0.199:5000/"
 
         fun create(): ApiInterface {
 

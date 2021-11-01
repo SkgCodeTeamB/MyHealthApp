@@ -11,7 +11,7 @@ import { isLoggedIn } from "../middleware/index.js";
 const router = express.Router();
 
 //get all the vaccinations
-router.get("/", isLoggedIn, getVaccinations);
+router.get("/", getVaccinations);
 //add a vaccination
 router.post("/add", addVaccination);
 //get all the Vaccinations of given (user's id on url)

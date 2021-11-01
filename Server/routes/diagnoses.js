@@ -11,9 +11,9 @@ import { isLoggedIn } from "../middleware/index.js";
 
 const router = express.Router();
 
-router.get("/", isLoggedIn, getDiagnoses);
-router.post("/add", isLoggedIn, addDiagnose);
-router.get("/:id", isLoggedIn, getUsersDiagnoses);
+router.get("/", getDiagnoses);
+router.post("/add", addDiagnose);
+router.get("/:id", getUsersDiagnoses);
 router.get("/count/:id", getUsersDiagnosesCount);
 
 export default router;
